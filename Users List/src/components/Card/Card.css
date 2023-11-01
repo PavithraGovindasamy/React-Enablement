@@ -1,0 +1,100 @@
+/** Card style **/
+
+
+.cards {
+  display: flex;
+  width: 440px;
+  height: 275px;
+  background-color: #fafbff;
+  border-radius: 6%;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.cards:hover {
+  background-color: #fafbff;
+  border: 1px solid #cad1e8;
+  box-shadow: 0 0 40px 0 #e0e4f8;
+}
+
+.image-container {
+  margin-right: 4px;
+  margin-top: 39px;
+  margin-left: 35px;
+}
+
+ img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+ }
+
+
+
+/** Content card style **/
+.content-container {
+  display: flex;
+  flex-direction: column;
+  width: 265px;
+  margin-top: 31px;
+}
+
+.name,
+.place {
+  font-size: 18px;
+  color: #111425;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 18px;
+}
+.name {
+  font-weight: bolder;
+  padding-top: 28px;
+  font-size: 24px;
+}
+.place {
+  padding-top: 0px;
+  padding-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+/** button style **/
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  margin-left: 16px;
+}
+
+.button {
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #525663;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/** Hover button style **/
+
+.hover-button {
+  cursor: pointer;
+  color: #677bd6;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid #cbd2e9;
+  border-radius: 25px;
+  background: #fafbff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.hover-button:hover {
+  background-color: #cbd2e9;
+}

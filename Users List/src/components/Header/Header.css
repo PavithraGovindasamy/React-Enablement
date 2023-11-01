@@ -1,0 +1,50 @@
+/** Header Section **/
+h1 {
+  font-size: 40px;
+  color: #272a3c;
+  margin-top: 129px;
+  margin-left: 170px;
+  margin-bottom: 27px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 73px;
+}
+
+/** Styling for search button **/
+
+.search {
+  width: 20%;
+}
+/** list style **/
+li {
+  font-size: 20px;
+  list-style: none;
+}
+/** input tag style **/
+
+.input-tag {
+  margin-left: 97px;
+}
+
+.input-tag input {
+  width: 440px;
+  height: 88px;
+  padding-bottom: 4px;
+  padding-left: 66px;
+  font-size: 23px;
+  font-weight: 600;
+  color: #5d606f;
+  border: 1px solid #cdd2e9;
+}
+
+.input-tag i {
+  position: absolute;
+  padding-top: 27px;
+  padding-left: 20px;
+  font-size: 32px;
+  font-weight: 900;
+  color: #333746
+}

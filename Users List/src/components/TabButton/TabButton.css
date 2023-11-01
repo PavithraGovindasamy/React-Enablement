@@ -1,0 +1,33 @@
+/** Button style for tabButton **/
+.tabButton {
+  margin-right: 178px;
+}
+.tabButton h2 {
+  text-align: left;
+}
+
+.tabButton menu {
+  margin: 1rem 0;
+  padding: 2px;
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.tabButton menu button {
+  border: none;
+  border-radius: 11px;
+  background-color: transparent;
+  color: #3e4152;
+  font-family: "Poppins", sans-serif;
+  font-size: 21px;
+  padding: 20px;
+  font-weight: 500;
+  cursor: pointer; 
+}
+
+.tabButton menu button.active {
+  background-color: #7089e9;
+  color: #f5ecff;
+  padding: 20px;
+}
