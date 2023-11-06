@@ -1,34 +1,56 @@
-.details-container{
-    display: flex;
-    justify-content: space-between;
+.details-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.heading-container{
-    padding-left: 99px;
+.heading-container {
+  padding-left: 99px;
 }
 
-.place-container img{
-    width: 1000px;
+.place-container img {
+  width: 1000px;
   height: 700px;
   object-fit: cover;
 }
-.place-heading{
-    margin-top: 200px;
-    font-size: 70px;
-    color: #7b2159;
+.place-heading {
+  margin-top: 200px;
+  font-size: 70px;
+  color: #7b2159;
 }
 
-.place-description{
-    width: 914px;
-    height: 252px;
-    background-color: #7b2159;
-    margin-top: 21px;
-    position: absolute;
-    color: white;
-    padding-top: 80px;
-    padding-left: 67px;
-    font-size: 40px;
-    line-height: 1.4;
-    letter-spacing: 2px;
+.place-description {
+  width: 914px;
+  height: 252px;
+  background-color: #7b2159;
+  margin-top: 21px;
+  position: absolute;
+  color: white;
+  padding-top: 65px;
+  padding-left: 67px;
+  font-size: 46px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  font-weight: 800;
 }
 
+.temperature {
+  position: absolute;
+  margin-top: 293px;
+  font-size: 45px;
+}
+
+.similar-destination-content {
+  padding-left: 9px;
+  margin-bottom: 20px;
+  color: #7b2159;
+}
+.similar-destination-heading {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.similar-destination-message {
+  font-size: 20px;
+  font-weight: 300;
+}

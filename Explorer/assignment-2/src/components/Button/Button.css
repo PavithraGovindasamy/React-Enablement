@@ -1,12 +1,13 @@
 button{
-    
-    background-color: rgb(112, 32, 83);
-    padding-top: 9px;
+    background-color: #7f1b5b;
+    padding-top: 11px;
     padding-left: 14px;
     padding-right: 14px;
-    padding-bottom: 9px;
-    font-size: 18px;
-    width: 160px;
-    color: rgb(230, 220, 237);
-    border :2px  rgb(112, 32, 83);
+    padding-bottom: 11px;
+    font-size: 17px;
+    width: 150px;
+    height: 42px;
+    color: rgb(255, 255, 255);
+    border: 2px #702053;
+
 }

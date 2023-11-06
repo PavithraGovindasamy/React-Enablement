@@ -1,0 +1,77 @@
+/** promo-section **/
+.promo-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+}
+/** explorer-section **/
+
+.explorer-section {
+  padding-left: 120px;
+  color: #7b2159;
+  margin-top: 150px;
+}
+.explorer-description {
+  font-size: 70px;
+  width: 82%;
+  font-weight: 250;
+  margin-top: 28px;
+  letter-spacing: 4px;
+  margin-bottom: 87px;
+}
+.explorer-description span {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.explorer-heading {
+  font-size: 24px;
+}
+.explorer-section button {
+  margin-top: 96px;
+}
+
+.explorer-image img {
+  width: 1000px;
+  height: 700px;
+  object-fit: cover;
+}
+img {
+  width: 100%;
+}
+/** dropdown menu **/
+.city {
+  width: 719px;
+    position: absolute;
+    height: 72px;
+    padding-left: 28px;
+    color: #6f6f6f;
+    font-size: 18px;
+}
+/** destination container **/
+.destination-section {
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 107px
+}
+.destination-heading {
+  letter-spacing: 1px;
+  font-size: 42px;
+  color: #7b2159;
+  margin-bottom: 9px;
+  font-weight: 600;
+}
+.destination-content {
+  color: #7b2159;
+  margin-bottom: 35px;
+  font-size: 23px;
+  font-weight: 300;
+}
+
+.destination-heading,
+.destination-content {
+  padding-left: 9px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
