@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from "react-router";
 import Card from "../../components/Card/Card";
-import '../Explorer/ExplorerPage.css'
+import "../Explorer/ExplorerPage.css";
 import { FadeLoader } from "react-spinners";
 import PropTypes from "prop-types";
 
@@ -20,7 +20,6 @@ export default function DetailsPage() {
   const [relatedPlace, setRelatedPlaces] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     fetch(`${api.base}weather?q=${place}&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
@@ -33,74 +32,93 @@ export default function DetailsPage() {
       .then((data) => {
         setData(data);
         setIsLoading(false);
+      });
+  }, [place]);
 
-      })
-      
-  },[place]);
-  
   useEffect(() => {
-    let isMounted = true; 
+    let isMounted = true;
     if (data.relatedPlaces) {
       const fetchRequests = data.relatedPlaces.map((relatedPlaceName) =>
-        fetch(`https://nijin-server.vercel.app/api/explorer/places/${relatedPlaceName}`)
-          .then((res) => res.json())
+        fetch(
+          `https://nijin-server.vercel.app/api/explorer/places/${relatedPlaceName}`
+        ).then((res) => res.json())
       );
-  
-      Promise.all(fetchRequests)
-        .then((relatedPlacesData) => {
-          if (isMounted) {
-            setRelatedPlaces(relatedPlacesData);
-          }
-        })
+
+      Promise.all(fetchRequests).then((relatedPlacesData) => {
+        if (isMounted) {
+          setRelatedPlaces(relatedPlacesData);
+        }
+      });
     }
-        return () => {
+    return () => {
       isMounted = false;
     };
   }, [data.relatedPlaces]);
-  
+
+  const placeDescription = data.fullDescription
+    ?.split("\\n")
+    .map((content, idx) => {
+      return (
+        <>
+          <p key={idx} className="para-content">
+            {content}
+            {"\n"}
+          </p>
+          <br></br>
+          <br></br>
+        </>
+      );
+    });
 
   return (
     <>
       <Header />
-      {isLoading ? (<FadeLoader
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />)
-      :( <>
-      <div className="details-container">
-      <div className="heading-container">
-        <p className="place-heading">{place}</p>
-        <p className="place-description">{data.place}</p>
-        {weather && weather.main && (
-          <p className="temperature">{weather.main.temp}°C</p>
-        )}
-      </div>
-      <div className="place-container">
-        <img src={Masangudi} alt="places" />
-      </div>
-    </div>
-    <div>
-      <p>{data.fullDescription}</p>
-    </div>
-    <div className="destination-section">
-      <div className="similar-destination-content">
-      <p className="similar-destination-heading">Similar Destinations</p>
-      <p className="similar-destination-message">Because you liked {place}</p>
-      </div>
-      <div className="container">
-        {data.relatedPlaces &&
-          Object.values(relatedPlace).map((item, index) => {
-            return (
-              <>
-                <Card {...item} ></Card>
-              </>
-            );
-          })}
-      </div>
-    </div>
-    </>)}
-     
+      {isLoading ? (
+        <FadeLoader
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <>
+          <div className="details-container">
+            <div className="heading-container">
+              <p className="place-heading">{data.city}</p>
+              <p className="place-description">{data.place}</p>
+              {weather && weather.main && (
+                <p className="temperature">{weather.main.temp}°C</p>
+              )}
+            </div>
+            <div className="place-container">
+              <img src={Masangudi} alt="places" />
+            </div>
+          </div>
+          <div className="paragraph-content">
+            <p>{placeDescription}</p>
+          </div>
+          <div className="destination-section">
+            <div className="similar-destination-content">
+              <p className="similar-destination-heading">
+                Similar Destinations
+              </p>
+              <p className="similar-destination-message">
+                Because you liked {place}
+              </p>
+            </div>
+            <div className="container">
+              {data.relatedPlaces &&
+                Object.values(relatedPlace).map((item, index) => {
+                  return (
+                    <>
+                      <Card {...item}></Card>
+                    </>
+                  );
+                })}
+            </div>
+          </div>
+        </>
+      )}
+
       <Footer />
     </>
   );

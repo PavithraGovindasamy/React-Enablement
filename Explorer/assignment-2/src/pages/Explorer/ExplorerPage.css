@@ -49,9 +49,9 @@ img {
 }
 /** destination container **/
 .destination-section {
-  padding-left: 120px;
-  padding-right: 120px;
-  padding-top: 107px
+  padding-left: 99px;
+  padding-right: 99px;
+  padding-top: 68px;
 }
 .destination-heading {
   letter-spacing: 1px;
@@ -65,6 +65,7 @@ img {
   margin-bottom: 35px;
   font-size: 23px;
   font-weight: 300;
+  
 }
 
 .destination-heading,

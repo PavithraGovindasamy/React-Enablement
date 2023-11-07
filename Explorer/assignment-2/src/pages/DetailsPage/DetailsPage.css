@@ -8,35 +8,37 @@
 }
 
 .place-container img {
-  width: 1000px;
-  height: 700px;
-  object-fit: cover;
+  width: 995px;
+    height: 734px;
+    object-fit: cover;
+    margin-top: 7px;
 }
 .place-heading {
-  margin-top: 200px;
-  font-size: 70px;
+  margin-top: 214px;
+  font-size: 83px;
   color: #7b2159;
+  font-weight: 300;
 }
 
 .place-description {
-  width: 914px;
-  height: 252px;
-  background-color: #7b2159;
-  margin-top: 21px;
-  position: absolute;
-  color: white;
-  padding-top: 65px;
-  padding-left: 67px;
-  font-size: 46px;
-  line-height: 1.4;
-  letter-spacing: 2px;
-  font-weight: 800;
+  width: 1071px;
+  height: 298px;
+    background-color: #7b2159;
+    margin-top: 14px;
+    position: absolute;
+    color: white;
+    padding-top: 77px;
+    padding-left: 67px;
+    font-size: 58px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-weight: 700;;
 }
 
 .temperature {
   position: absolute;
-  margin-top: 293px;
-  font-size: 45px;
+  margin-top: 337px;
+  font-size: 49px;
 }
 
 .similar-destination-content {
@@ -53,4 +55,16 @@
 .similar-destination-message {
   font-size: 20px;
   font-weight: 300;
+}
+
+.paragraph-content{
+  margin-top: 100px;
+  margin-left: 99px;
+  margin-right: 99px;
+}
+.para-content{
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: justify;
 }

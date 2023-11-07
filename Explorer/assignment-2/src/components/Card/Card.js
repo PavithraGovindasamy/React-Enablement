@@ -6,7 +6,11 @@ import PropTypes from "prop-types";
 
 export default function Card({ place, city, shortDescription }) {
   const navigate=useNavigate()
-  console.log(city);
+  const placeDescription = shortDescription.split("\\n")
+        .map((content, idx) => {
+            return <p key={idx}>{content}</p>
+        });
+  console.log(placeDescription);
   return (
     <div className="cards">
       <img src={`/images/${city}.png`} alt="places" />
