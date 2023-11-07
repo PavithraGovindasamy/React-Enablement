@@ -73,8 +73,6 @@
   }
   
   
-  
-  
   .button_form {
     background-color: #702053;
     padding: 8px;
@@ -82,17 +80,26 @@
     width: 203px;
     font-size: 16px;
     height: 46px;
-    margin-left: 200px;
-  }
+    position: relative;
+    left: -17%;
+}
+
+
 
   .hidden{
     display: none;
     margin-top: 20px;
     color: #000;
-    width: 501px;
-    height: 66px;
-    background-color: rgb(112, 32, 83);
+    width: 1000px;
+    color: white;
+    height: 109px;
+    padding: 19px;
+    font-size: 25px;
+    background-color: #702053;
   }
   .error{
     color: #000;
+  }
+  .hidden span{
+        font-weight: 800;
   }

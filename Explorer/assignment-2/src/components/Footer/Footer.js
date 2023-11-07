@@ -149,9 +149,9 @@ export default function Footer() {
             </button>
 
             <div className="hidden">
-              Thank you {formName} for expressing your interest in traveling
+              Thank you <span>{formName}</span> for expressing your interest in traveling
               with us. Our sales team will get back with the best packages from{" "}
-              {hometown} to {destination}
+              <span>{hometown}</span> to <span>{destination}</span>
             </div>
           </div>
         </form>
