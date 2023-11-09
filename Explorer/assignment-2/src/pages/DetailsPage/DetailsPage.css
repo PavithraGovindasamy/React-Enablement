@@ -35,7 +35,7 @@
   background-color: #7b2159;
   margin-top: 14px;
   position: absolute;
-  color: #ffffff;
+  color: #fff;
   padding-top: 64px;
   padding-left: 67px;
   font-size: 58px;
@@ -81,4 +81,9 @@
 
 .paragraph-content p::selection {
   background-color: #7b2159;
+}
+
+.containers {
+  display: flex;
+  flex-wrap: wrap;
 }

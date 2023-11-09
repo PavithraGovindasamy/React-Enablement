@@ -4,12 +4,14 @@ import './Header.css'
 import { useNavigate } from "react-router";
 
 export default function Header (){
-
-  const navigate=useNavigate()
+  const handleClick = () => {
+      navigate(`/home`)    } 
+      const navigate=useNavigate();
+ 
   return (
     <div className="header">
       <div className="image-container">
-        <img src={logo} alt="logoImage" onClick={() => navigate(`/`)} />
+        <img src={logo} alt="logoImage" onClick={handleClick} />
       </div>
       <div className="menu-container">
         <ul>

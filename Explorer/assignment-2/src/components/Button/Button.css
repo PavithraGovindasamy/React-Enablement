@@ -1,13 +1,10 @@
 button{
     background-color: #7f1b5b;
-    padding-top: 11px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-bottom: 11px;
+    padding: 11px 14px;
     font-size: 19px;
     width: 160px;
     height: 49px;
-    color: #ffffff;
+    color: #fff;
     border: 2px #702053;
     cursor: pointer;
 }

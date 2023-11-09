@@ -6,27 +6,26 @@ import cover from "../../assets/images/banner.webp";
 import "./ExplorerPage.css";
 import { useNavigate } from "react-router";
 import Footer from "../../components/Footer/Footer";
-
+import dropDown from "../../assets/images/images.png"
 export default function ExplorerPage() {
-  const [data, setData] = useState([]);
-  const [option,setOptions]=useState('');
-  const navigate=useNavigate()
+  const [placeData, setData] = useState([]);
+  const [option, setOptions] = useState("");
+  const navigate = useNavigate();
   // To fetch all the data
   useEffect(() => {
     fetch("https://nijin-server.vercel.app/api/explorer")
       .then((res) => res.json())
-      .then((data) => {
-        setData(data);
+      .then((placeData) => {
+        setData(placeData);
       });
   }, []);
-  
-//  To navigate to another page on click
+
+  //  To navigate to another page on click
   const handleExploreClick = () => {
     if (option) {
       navigate(`/details/${option}`);
-    } 
+    }
   };
-  
 
   return (
     <>
@@ -38,17 +37,27 @@ export default function ExplorerPage() {
           <p className="explorer-description">
             Your Adventure Travel Expert in the <span>SOUTH</span>
           </p>
-          <select className="city" label="city" onChange={(e)=>setOptions(e.target.value)}>
-            <option value="">Choose</option>
-            <option value="pollachi">pollachi</option>
-            <option value="thanjavur">Thanjavur</option>
-            <option value="chidambaram">chidambaram</option>
-            <option value="masinagudi">Masinagudi</option>
-            <option value="kumbakkonam">Kumbakkonam</option>
-            <option value="tirunelveli">Tirunelveli</option>
-          </select>
-          <Button className="explorer-button" label={"EXPLORE"} clicked={handleExploreClick}></Button>
+          <div className="input-container">
+            <select
+              className="city"
+              label="city"
+              onChange={(e) => setOptions(e.target.value)}
+            >
+              <option value="">Choose</option>
+              {placeData.map((item,index) => (
+                <option key={`${item.place}-${index}`} value={item.city}>
+                  {item.city}
+                </option>
+              ))}
+            </select>
+            <img className="icon" src={dropDown} alt="Icon" />
+          </div>
 
+          <Button
+            className="explorer-button"
+            label={"EXPLORE"}
+            clicked={handleExploreClick}
+          ></Button>
         </div>
         <div className="explorer-image">
           <img src={cover} alt="coverImage" />
@@ -61,8 +70,8 @@ export default function ExplorerPage() {
           Just for you. Because you and your bike are special to us!
         </p>
         <div className="container">
-          {data.map((item) => (
-            <Card {...item}></Card>
+          {placeData.map((item, index) => (
+            <Card key={`${item.place}-${index}`} {...item}></Card>
           ))}
         </div>
       </div>

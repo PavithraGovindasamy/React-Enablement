@@ -46,7 +46,8 @@ img {
   padding-left: 28px;
   color: #6f6f6f;
   font-size: 18px;
-  border: 1px solid black;
+  border: 1px solid #000;
+  
 }
 /** destination container **/
 .destination-section {
@@ -75,4 +76,16 @@ img {
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.icon {
+  position: absolute;
+  top: 26px;
+  left: 681px;
+  width: 36px;
+  height: 25px;
+}
+
+.input-container {
+  position: relative;
 }

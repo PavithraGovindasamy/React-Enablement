@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Footer.css";
-
+import dropDown from "../../assets/images/dropdown.png";
+import '../../pages/Explorer/ExplorerPage.css'
 export default function Footer() {
   const [formName, setFormName] = useState("");
   const [hometown, setFormHometown] = useState("");
@@ -100,34 +101,40 @@ export default function Footer() {
             </div>
             <div className="form-group">
               <label className="label_heading">Your Home Town</label>
-              <select
-                id="hometown"
-                name="hometown"
-                className="input-field"
-                value={formData.hometown}
-                onChange={handleInputChange}
-              >
-                <option value="">Choose</option>
-                <option value="india">India </option>
-                <option value="usa">USA</option>
-              </select>
+              <div className="input-container">
+                <select
+                  id="hometown"
+                  name="hometown"
+                  className="input-field"
+                  value={formData.hometown}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Choose</option>
+                  <option value="india">India </option>
+                  <option value="usa">USA</option>
+                </select>
+                <img className="icon-form" src={dropDown} alt="Icon" />
+              </div>
             </div>
 
             <div className="form-group">
               <label className="label_heading">
                 Where would you like to go?
               </label>
-              <select
-                id="destination"
-                name="destination"
-                className="input-field"
-                value={formData.destination}
-                onChange={handleInputChange}
-              >
-                <option value="">Choose</option>
-                <option value="TN">Tamil Nadu</option>
-                <option value="KN">Karnataka</option>
-              </select>
+              <div className="input-container">
+                <select
+                  id="destination"
+                  name="destination"
+                  className="input-field"
+                  value={formData.destination}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Choose</option>
+                  <option value="TN">Tamil Nadu</option>
+                  <option value="KN">Karnataka</option>
+                </select>
+                <img className="icon-form" src={dropDown} alt="Icon" />
+              </div>
             </div>
 
             <div className="form-group">
@@ -149,9 +156,10 @@ export default function Footer() {
             </button>
 
             <div className="hidden">
-              Thank you <span>{formName}</span> for expressing your interest in traveling
-              with us. Our sales team will get back with the best packages from{" "}
-              <span>{hometown}</span> to <span>{destination}</span>
+              Thank you <span>{formName}</span> for expressing your interest in
+              traveling with us. Our sales team will get back with the best
+              packages from <span>{hometown}</span> to{" "}
+              <span>{destination}</span>
             </div>
           </div>
         </form>
