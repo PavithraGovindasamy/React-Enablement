@@ -1,7 +1,6 @@
 import Header from "../../components/Header/Header";
-import Masangudi from "../../assets/images/masangudi.png";
 import "./DetailsPage.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from "react-router";
 import Card from "../../components/Card/Card";
@@ -90,7 +89,7 @@ export default function DetailsPage() {
               )}
             </div>
             <div className="place-container">
-              <img src={Masangudi} alt="places" />
+            <img src={`/images/${data.city}.png`} alt="places" />
             </div>
           </div>
           <div className="paragraph-content">
