@@ -12,6 +12,7 @@
   
   .image-container img {
     width: 138px;
+    cursor: pointer;
   }
 
 /** menu-container **/
@@ -27,4 +28,5 @@
   ul li {
     list-style-type: none;
     font-weight: 600;
+    cursor: pointer;
   }

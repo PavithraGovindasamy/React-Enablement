@@ -11,7 +11,7 @@ export default function ExplorerPage() {
   const [data, setData] = useState([]);
   const [option,setOptions]=useState('');
   const navigate=useNavigate()
-
+  // To fetch all the data
   useEffect(() => {
     fetch("https://nijin-server.vercel.app/api/explorer")
       .then((res) => res.json())
@@ -19,6 +19,8 @@ export default function ExplorerPage() {
         setData(data);
       });
   }, []);
+  
+//  To navigate to another page on click
   const handleExploreClick = () => {
     if (option) {
       navigate(`/details/${option}`);

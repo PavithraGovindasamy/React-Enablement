@@ -7,6 +7,15 @@
   padding-left: 99px;
 }
 
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
 .place-container img {
   width: 995px;
     height: 734px;
@@ -37,7 +46,7 @@
 .temperature {
   position: absolute;
   margin-top: 337px;
-  font-size: 49px;
+  font-size: 55px;
 }
 
 .similar-destination-content {
@@ -62,9 +71,14 @@
   margin-left: 99px;
   margin-right: 99px;
 }
+
 .para-content{
   font-size: 33px;
   font-weight: 350;
   line-height: 1.5;
   text-align: justify;
+}
+
+.paragraph-content p::selection {
+  background-color: #7b2159;
 }

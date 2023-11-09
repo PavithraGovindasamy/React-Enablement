@@ -19,7 +19,7 @@ export default function DetailsPage() {
   const [data, setData] = useState([]);
   const [relatedPlace, setRelatedPlaces] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  // To fetch details of selected place
   useEffect(() => {
     fetch(`${api.base}weather?q=${place}&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
@@ -34,7 +34,7 @@ export default function DetailsPage() {
         setIsLoading(false);
       });
   }, [place]);
-
+  //* to fetch related places
   useEffect(() => {
     let isMounted = true;
     if (data.relatedPlaces) {
@@ -54,7 +54,7 @@ export default function DetailsPage() {
       isMounted = false;
     };
   }, [data.relatedPlaces]);
-
+  // To split the para content
   const placeDescription = data.fullDescription
     ?.split("\\n")
     .map((content, idx) => {
@@ -74,11 +74,11 @@ export default function DetailsPage() {
     <>
       <Header />
       {isLoading ? (
-        <FadeLoader
-          size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
+     <div className="loader-container">
+     <FadeLoader size={150} aria-label="Loading Spinner" data-testid="loader" />
+     <p>Loading</p>
+   </div>
+   
       ) : (
         <>
           <div className="details-container">
