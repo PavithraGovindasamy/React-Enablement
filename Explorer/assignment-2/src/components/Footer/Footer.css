@@ -37,10 +37,10 @@
     margin-bottom: 38px;
   }
   .forms-group h1{
-    font-size: 39px;
+    font-size: 47px;
   }
   .forms-group p{
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 300;
   }
   .forms {
@@ -77,11 +77,11 @@
     background-color: #702053;
     padding: 8px;
     color: white;
-    width: 203px;
-    font-size: 16px;
-    height: 46px;
+    width: 232px;
+    font-size: 19px;
     position: relative;
-    left: -17%;
+    left: -16%;
+    font-weight: 500;
 }
 
 

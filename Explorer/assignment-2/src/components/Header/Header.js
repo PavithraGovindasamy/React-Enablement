@@ -14,7 +14,7 @@ export default function Header (){
       <div className="menu-container">
         <ul>
           <li>Hotels</li>
-          <li>Bikes</li>
+          <li>Bike Rentals</li>
           <li>Restaurants</li>
         </ul>
       </div>
