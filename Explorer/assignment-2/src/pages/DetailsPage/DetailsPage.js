@@ -45,7 +45,6 @@ export default function DetailsPage() {
 
   // * to fetch related places
   useEffect(() => {
-    let isMounted = true;
     if (placeData.relatedPlaces) {
       const fetchRequests = placeData.relatedPlaces.map((relatedPlaceName) =>
         fetch(
@@ -53,10 +52,8 @@ export default function DetailsPage() {
         ).then((res) => res.json())
       );
 
-      Promise.all(fetchRequests).then((relatedPlacesData) => {
-        if (isMounted) {
+      Promise.all(fetchRequests).then((relatedPlacesData) => {  
           setRelatedPlaces(relatedPlacesData);
-        }
       });
     }
   }, [placeData.relatedPlaces]);
