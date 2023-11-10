@@ -1,0 +1,40 @@
+.cards {
+    width: 33.111%;
+    height: 30%;
+    padding: 12px;
+  }
+  .cards img {
+    width: 100%;
+  }
+  
+  .cards-heading {
+    font-size: 39px;
+    margin-top: 20px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    color: rgb(67, 67, 67);
+  }
+  .city-name {
+    font-weight: bold;
+    margin-bottom: 36px;
+    font-size: 20px;
+  }
+  .description {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 350;
+    color: rgb(85, 85, 85);
+    height: 150px;
+    overflow: hidden;
+
+    
+  }
+  
+  .destination-button{
+      margin-top: 17px;
+  }
+  
+  .destination-section button{
+      margin-top: 22px;
+      margin-bottom: 70px;
+  }

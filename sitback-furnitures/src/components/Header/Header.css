@@ -1,0 +1,28 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255,255,255);
+    color:#000;
+    position: fixed;
+    width: 100%;
+    padding: 14px;
+    box-shadow: 10px 10px 5px 12px wheat;
+}
+
+.menu-container{
+    display: flex;
+    gap: 12px;
+   
+}
+
+ul li{
+    list-style: none;
+}
+
+.user-details{
+    display: flex;
+}
+.user-details img{
+    width: 37px;
+    height: 25px;
+}

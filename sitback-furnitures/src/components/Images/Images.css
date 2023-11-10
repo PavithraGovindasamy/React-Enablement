@@ -1,0 +1,6 @@
+.images-container img{
+    width: 444px;
+    height: 600px;
+    object-fit: cover;
+    padding-left: 11px;
+}
