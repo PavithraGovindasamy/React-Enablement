@@ -8,11 +8,12 @@
   }
   
   .cards-heading {
-    font-size: 39px;
-    margin-top: 20px;
-    font-weight: 300;
+    font-size: 28px;
+    margin-top: 8px;
+    font-weight: 500;
     margin-bottom: 12px;
-    color: rgb(67, 67, 67);
+    margin-left: 10px;
+    color: #000;
   }
   .city-name {
     font-weight: bold;
@@ -20,12 +21,13 @@
     font-size: 20px;
   }
   .description {
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 350;
-    color: rgb(85, 85, 85);
-    height: 150px;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 450;
+    color: #000;
+    height: 200px;
     overflow: hidden;
+    margin-left: 10px;
 
     
   }

@@ -1,20 +1,27 @@
 .header-container{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(255,255,255);
+    background-color: #ffffff;
     color:#000;
     position: fixed;
     width: 100%;
-    padding: 14px;
-    box-shadow: 10px 10px 5px 12px wheat;
+    padding:23px;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px #eaeaea
+
 }
 
 .menu-container{
     display: flex;
-    gap: 12px;
-   
+    gap: 73px;
+    font-weight: 550;
+    font-size: 14px;
 }
+.menu-heading{
+    padding-left: 25px;
+    font-size: 19px;
+    font-weight: 550;
 
+}
 ul li{
     list-style: none;
 }
@@ -22,7 +29,12 @@ ul li{
 .user-details{
     display: flex;
 }
+.user-details p{
+    font-size: 14px;
+    font-weight: 600;
+}
 .user-details img{
-    width: 37px;
-    height: 25px;
+    width: 23px;
+    height: 13px;
+    margin: 3px;
 }

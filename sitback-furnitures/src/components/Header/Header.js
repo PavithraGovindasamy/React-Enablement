@@ -4,7 +4,7 @@ export default function HomePage(){
     return(
         <>
         <div className="header-container">
-            <p>SITBACK</p>
+            <p className='menu-heading'>SITBACK</p>
             <ul className='menu-container'>
                 <li>COUCHES</li>
                 <li>CHAIRS</li>

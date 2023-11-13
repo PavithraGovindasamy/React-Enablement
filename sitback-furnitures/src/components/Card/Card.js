@@ -3,7 +3,7 @@ import React from 'react';
 import  {useState} from "react-router";
 import PropTypes from "prop-types";
 import Image from "../Images/Image.js"
-
+import Button from "../Button/Button";
 export default function Card({ category, photo, description}) {
   return (
     <div className="cards">
@@ -13,12 +13,12 @@ export default function Card({ category, photo, description}) {
      </div>
       <p className="cards-heading">{category}</p>
       <p className="description">{description}</p>
+      <Button className="destination-button" label={"SHOP NOW"} ></Button>
     </div>
   );
 }
 
 Card.propTypes = {
-  place: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  shortDescription: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
