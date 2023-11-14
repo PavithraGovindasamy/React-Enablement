@@ -1,10 +1,18 @@
 import dropdown from '../../assests/images/dropdown.png'
 import './Header.css';
+import { useNavigate } from "react-router";
+
 export default function HomePage(){
+   
+      const navigate=useNavigate();
+    function handleHeaderClick(){
+        navigate(`/`)    
+    } 
+    
     return(
         <>
         <div className="header-container">
-            <p className='menu-heading'>SITBACK</p>
+            <p className='menu-heading' onClick={handleHeaderClick}>SITBACK</p>
             <ul className='menu-container'>
                 <li>COUCHES</li>
                 <li>CHAIRS</li>

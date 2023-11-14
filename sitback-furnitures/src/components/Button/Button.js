@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 export default function Button({ label,clicked }) {
     return (
-            /** button component which has feauture of button */
 
         <button onClick={clicked} >
           {label}
