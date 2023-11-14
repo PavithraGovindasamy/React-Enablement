@@ -1,0 +1,53 @@
+.product-cards {
+  width: 25%;
+  /* height: 20%; */
+  padding: 12px;
+}
+
+.images  img{
+  height: 190px;
+  width: 383px;
+  border-radius: 7%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 122px;
+}
+.products-details {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-cards-heading {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.product-price{
+    margin-right: 24px;
+}
+.product-description {
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 450;
+  color: #000;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.shield-icon{
+    width: 40px;
+    height: 38px;
+}
+.guarantee-details{
+    display: flex;
+}
+.guarantee-details p{
+    color: green;
+    margin-top: 6px;
+}

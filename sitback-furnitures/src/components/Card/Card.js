@@ -1,19 +1,24 @@
 import "./Card.css";
 import React from 'react';
-import  {useState} from "react-router";
+import  {useNavigate} from "react-router";
 import PropTypes from "prop-types";
 import Image from "../Images/Image.js"
 import Button from "../Button/Button";
 export default function Card({ category, photo, description}) {
+    
+  const navigate=useNavigate();
+  const handleClick=()=>{
+      navigate(`/categories/${category}`)    
+  }
+  
   return (
     <div className="cards">
-     {/* <img src={require(`images/${category}.png`)} alt="places" /> */}
      <div className="images">
      {photo.length>0 && <Image images={photo} category={category}></Image>} 
      </div>
       <p className="cards-heading">{category}</p>
       <p className="description">{description}</p>
-      <Button className="destination-button" label={"SHOP NOW"} ></Button>
+      <Button className="destination-button" label={"SHOP NOW"} clicked={handleClick} ></Button>
     </div>
   );
 }

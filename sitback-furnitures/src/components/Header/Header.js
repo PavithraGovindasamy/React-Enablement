@@ -2,7 +2,7 @@ import dropdown from '../../assests/images/dropdown.png'
 import './Header.css';
 import { useNavigate } from "react-router";
 
-export default function HomePage(){
+export default function Header(){
    
       const navigate=useNavigate();
     function handleHeaderClick(){
