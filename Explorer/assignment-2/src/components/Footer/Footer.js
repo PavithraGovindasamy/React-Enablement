@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Footer.css";
 import dropDown from "../../assets/images/dropdown.png";
-import '../../pages/Explorer/ExplorerPage.css'
+import "../../pages/Explorer/ExplorerPage.css";
+import Button from "../Button/Button";
+import Select from "../Select/Select";
+import Input from "../Input/Input";
 export default function Footer() {
   const [formName, setFormName] = useState("");
   const [hometown, setFormHometown] = useState("");
@@ -23,6 +26,8 @@ export default function Footer() {
     e.preventDefault();
 
     if (validateForm()) {
+      console.log("Hometown:", formData);
+      console.log("Destination:", formData.destination);
       document.getElementsByClassName("hidden")[0].style.display = "block";
       setFormName(formData.fname);
       setFormHometown(formData.hometown);
@@ -75,6 +80,16 @@ export default function Footer() {
     return valid;
   };
 
+  const homeTownData = [
+    { city: "vellore", label: "Vellore" },
+    { city: "banglore", label: "Banglore" },
+  ];
+
+  const destinationOptionsData = [
+    { city: "tamilnadu", label: "Tamil Nadu" },
+    { city: "karnataka", label: "Karnataka" },
+  ];
+
   return (
     <>
       <div className="footer">
@@ -86,33 +101,25 @@ export default function Footer() {
           <div className="forms">
             <div className="form-group">
               <label className="label_heading">Name</label>
-              <input
+              <Input
                 type="text"
-                id="fname"
                 name="fname"
-                size="40"
-                className="input-field"
                 value={formData.fname}
                 onChange={handleInputChange}
+                error={formErrors.fname}
               />
-              {formErrors.fname && (
-                <div className="error">{formErrors.fname}</div>
-              )}
             </div>
             <div className="form-group">
               <label className="label_heading">Your Home Town</label>
               <div className="input-container">
-                <select
-                  id="hometown"
-                  name="hometown"
+                <Select
                   className="input-field"
+                  name="hometown"
                   value={formData.hometown}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Choose</option>
-                  <option value="india">India </option>
-                  <option value="usa">USA</option>
-                </select>
+                  options={homeTownData}
+                  onChange={(value) => handleInputChange({ target: { value } })}
+                />
+
                 <img className="icon-form" src={dropDown} alt="Icon" />
               </div>
             </div>
@@ -122,46 +129,42 @@ export default function Footer() {
                 Where would you like to go?
               </label>
               <div className="input-container">
-                <select
-                  id="destination"
-                  name="destination"
+                <Select
                   className="input-field"
+                  name="destination"
                   value={formData.destination}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Choose</option>
-                  <option value="TN">Tamil Nadu</option>
-                  <option value="KN">Karnataka</option>
-                </select>
+                  options={destinationOptionsData}
+                  onChange={(value) =>
+                    handleInputChange({
+                      name: "destination",
+                      target: { value },
+                    })
+                  }
+                />
                 <img className="icon-form" src={dropDown} alt="Icon" />
               </div>
             </div>
 
             <div className="form-group">
               <label className="label_heading">Contact Number</label>
-              <input
-                id="number"
+              <Input
+                type="text"
                 name="number"
-                size="40"
-                className="input-field"
                 value={formData.number}
                 onChange={handleInputChange}
+                error={formErrors.number}
               />
-              {formErrors.number && (
-                <div className="error">{formErrors.number}</div>
-              )}
             </div>
-            <button type="submit" className="button_form">
-              SUBMIT INTEREST
-            </button>
+            <Button type="submit" label={"SUBMIT INTEREST"} size="big"></Button>
 
-            <div className="hidden">
+           
+          </div>
+          <div className="hidden">
               Thank you <span>{formName}</span> for expressing your interest in
               traveling with us. Our sales team will get back with the best
               packages from <span>{hometown}</span> to{" "}
               <span>{destination}</span>
             </div>
-          </div>
         </form>
       </div>
     </>

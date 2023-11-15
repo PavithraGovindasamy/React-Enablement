@@ -2,11 +2,12 @@ import './Button.css'
 import PropTypes from "prop-types";
 
 
-export default function Button({ label,clicked }) {
+export default function Button({ label,clicked ,size}) {
+  const buttonClassName = size === 'big' ? 'big-button' : 'small-button';
+
     return (
             /** button component which has feauture of button */
-
-        <button onClick={clicked} >
+        <button onClick={clicked} className={buttonClassName} >
           {label}
         </button>
     );
@@ -14,6 +15,5 @@ export default function Button({ label,clicked }) {
   
   Button.propTypes = {
     label: PropTypes.string.isRequired,
-    clicked: PropTypes.func.isRequired,
   };
   

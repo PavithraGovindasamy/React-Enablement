@@ -6,8 +6,9 @@ import cover from "../../assets/images/banner.webp";
 import "./ExplorerPage.css";
 import { useNavigate } from "react-router";
 import Footer from "../../components/Footer/Footer";
-import dropDown from "../../assets/images/images.png"
+import dropDown from "../../assets/images/images.png";
 import ExplorerService from "../../services/ExplorerService";
+import Select from "../../components/Select/Select";
 
 export default function ExplorerPage() {
   const [placeData, setData] = useState([]);
@@ -15,12 +16,11 @@ export default function ExplorerPage() {
   const navigate = useNavigate();
   // To fetch all the data
   useEffect(() => {
-    const fetchData=async()=>{
-      const placeData=await ExplorerService.getAllPlaces();
+    const fetchData = async () => {
+      const placeData = await ExplorerService.getAllPlaces();
       setData(placeData);
     };
     fetchData();
-
   }, []);
 
   //  To navigate to another page on click
@@ -30,6 +30,10 @@ export default function ExplorerPage() {
     }
   };
 
+  const handleDropdown = (selectedValue) => {
+    setOptions(selectedValue);
+  };
+  
   return (
     <>
       <Header />
@@ -41,18 +45,12 @@ export default function ExplorerPage() {
             Your Adventure Travel Expert in the <span>SOUTH</span>
           </p>
           <div className="input-container">
-            <select
-              className="city"
-              label="city"
-              onChange={(e) => setOptions(e.target.value)}
-            >
-              <option value="">Choose</option>
-              {placeData.map((item,index) => (
-                <option key={`${item.place}-${index}`} value={item.city}>
-                  {item.city}
-                </option>
-              ))}
-            </select>
+            <Select
+              id="selected-option"
+              options={placeData}
+              onChange={handleDropdown}
+            />
+
             <img className="icon" src={dropDown} alt="Icon" />
           </div>
 

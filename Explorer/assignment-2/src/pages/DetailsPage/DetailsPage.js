@@ -33,7 +33,6 @@ export default function DetailsPage() {
           const relatedPlacesData = await ExplorerService.getRelatedPlaces(placeData.relatedPlaces);
           setRelatedPlaces(relatedPlacesData);
           setIsLoading(false);
-
         }
       } catch (error) {
         navigate("/home");
