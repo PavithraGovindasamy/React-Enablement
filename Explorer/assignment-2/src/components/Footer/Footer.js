@@ -32,8 +32,6 @@ export default function Footer() {
       console.log("Destination:", formData.destination);
       document.getElementsByClassName("hidden")[0].style.display = "block";
       setFormName(formData.fname);
-      setFormHometown(formData.hometown);
-      setFormDestination(formData.destination);
       setFormData({
         fname: "",
         hometown: "",
@@ -56,6 +54,18 @@ export default function Footer() {
       [name]: "",
     });
   };
+
+  const handleSelectHomeTownChange = (selectedValue) => {
+    setFormHometown(selectedValue);
+    console.log(selectedValue);
+  };
+
+  const handleSelectDestinationChange = (selectedValue) => {
+    setFormDestination(selectedValue);
+    console.log(selectedValue);
+  };
+
+
 
   const validateForm = () => {
     let valid = true;
@@ -119,7 +129,7 @@ export default function Footer() {
                   name="hometown"
                   value={formData.hometown}
                   options={homeTownData}
-                  onChange={(value) => handleInputChange({ target: { value } })}
+                  onChange={handleSelectHomeTownChange}
                 />
 
                 <img className="icon-form" src={dropDown} alt="Icon" />
@@ -136,12 +146,7 @@ export default function Footer() {
                   name="destination"
                   value={formData.destination}
                   options={destinationOptionsData}
-                  onChange={(value) =>
-                    handleInputChange({
-                      name: "destination",
-                      target: { value },
-                    })
-                  }
+                  onChange={handleSelectDestinationChange}
                 />
                 <img className="icon-form" src={dropDown} alt="Icon" />
               </div>
