@@ -10,13 +10,8 @@ button {
 }
 
 .big-button {
-    background-color: #702053;
     padding: 12px;
-    color: white;
     width: 232px;
-    font-size: 19px;
-    position: relative;
     font-weight: 500;
-    cursor: pointer;
     border: 1px solid #fff;
 }

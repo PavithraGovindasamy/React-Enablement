@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import Card from "../../components/Card/Card";
+import DestinationSection from "../../DestinationSection/DestinationSection";
 import cover from "../../assets/images/banner.webp";
 import "./ExplorerPage.css";
 import { useNavigate } from "react-router";
@@ -33,7 +33,7 @@ export default function ExplorerPage() {
   const handleDropdown = (selectedValue) => {
     setOptions(selectedValue);
   };
-  
+
   return (
     <>
       <Header />
@@ -65,17 +65,11 @@ export default function ExplorerPage() {
         </div>
       </div>
       {/* destination  section */}
-      <div className="destination-section">
-        <p className="destination-heading">Destinations</p>
-        <p className="destination-content">
-          Just for you. Because you and your bike are special to us!
-        </p>
-        <div className="container">
-          {placeData.map((item, index) => (
-            <Card key={`${item.place}-${index}`} {...item}></Card>
-          ))}
-        </div>
-      </div>
+       <DestinationSection
+        title="Destinations"
+        content="Just for you. Because you and your bike are special to us!"
+        data={placeData}
+      />
       {/* form-section */}
       <Footer></Footer>
       <p>{option}</p>

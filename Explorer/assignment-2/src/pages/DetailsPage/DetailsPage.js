@@ -3,12 +3,11 @@ import "./DetailsPage.css";
 import { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from "react-router";
-import Card from "../../components/Card/Card";
 import "../Explorer/ExplorerPage.css";
 import { useNavigate } from "react-router";
 import { FadeLoader } from "react-spinners";
 import ExplorerService from "../../services/ExplorerService";
-
+import DestinationSection from "../../DestinationSection/DestinationSection";
 
 export default function DetailsPage() {
   const [weather, setWeather] = useState({});
@@ -18,7 +17,6 @@ export default function DetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,10 +25,12 @@ export default function DetailsPage() {
 
         const placeData = await ExplorerService.getPlaceData(place);
         setData(placeData);
-      
+
         // Fetch related places
         if (placeData.relatedPlaces) {
-          const relatedPlacesData = await ExplorerService.getRelatedPlaces(placeData.relatedPlaces);
+          const relatedPlacesData = await ExplorerService.getRelatedPlaces(
+            placeData.relatedPlaces
+          );
           setRelatedPlaces(relatedPlacesData);
           setIsLoading(false);
         }
@@ -41,7 +41,6 @@ export default function DetailsPage() {
 
     fetchData();
   }, [place, navigate]);
-
 
   // To split the para content
   const placeDescription = placeData.fullDescription
@@ -83,21 +82,11 @@ export default function DetailsPage() {
             </div>
           </div>
           <div className="paragraph-content">{placeDescription}</div>
-          <div className="destination-section">
-            <div className="similar-destination-content">
-              <p className="similar-destination-heading">
-                Similar Destinations
-              </p>
-              <p className="similar-destination-message">
-                Because you liked {place}
-              </p>
-            </div>
-            <div className="container">
-              {relatedPlace.map((item) => (
-                <Card key={`${item.city}-${item.id}`} {...item}></Card>
-              ))}
-            </div>
-          </div>
+          <DestinationSection
+            title="Similar Destinations"
+            content={`Because you liked ${place}`}
+            data={relatedPlace}
+          />
         </>
       )}
 

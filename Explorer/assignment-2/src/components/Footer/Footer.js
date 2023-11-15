@@ -5,6 +5,8 @@ import "../../pages/Explorer/ExplorerPage.css";
 import Button from "../Button/Button";
 import Select from "../Select/Select";
 import Input from "../Input/Input";
+
+
 export default function Footer() {
   const [formName, setFormName] = useState("");
   const [hometown, setFormHometown] = useState("");
@@ -156,15 +158,12 @@ export default function Footer() {
               />
             </div>
             <Button type="submit" label={"SUBMIT INTEREST"} size="big"></Button>
-
-           
           </div>
           <div className="hidden">
-              Thank you <span>{formName}</span> for expressing your interest in
-              traveling with us. Our sales team will get back with the best
-              packages from <span>{hometown}</span> to{" "}
-              <span>{destination}</span>
-            </div>
+            Thank you <span>{formName}</span> for expressing your interest in
+            traveling with us. Our sales team will get back with the best
+            packages from <span>{hometown}</span> to <span>{destination}</span>
+          </div>
         </form>
       </div>
     </>
