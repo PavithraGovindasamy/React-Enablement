@@ -28,8 +28,6 @@ export default function Footer() {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log("Hometown:", formData);
-      console.log("Destination:", formData.destination);
       document.getElementsByClassName("hidden")[0].style.display = "block";
       setFormName(formData.fname);
       setFormData({
@@ -57,12 +55,10 @@ export default function Footer() {
 
   const handleSelectHomeTownChange = (selectedValue) => {
     setFormHometown(selectedValue);
-    console.log(selectedValue);
   };
 
   const handleSelectDestinationChange = (selectedValue) => {
     setFormDestination(selectedValue);
-    console.log(selectedValue);
   };
 
 
