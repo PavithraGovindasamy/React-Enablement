@@ -81,11 +81,18 @@ img {
 .icon {
   position: absolute;
   top: 26px;
-  left: 681px;
-  width: 36px;
+  left: 668px;
+  width: 33px;
   height: 25px;
 }
 
 .input-container {
   position: relative;
+}
+
+.input-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-size: 45px 28px;
 }
