@@ -7,17 +7,20 @@ import "./ExplorerPage.css";
 import { useNavigate } from "react-router";
 import Footer from "../../components/Footer/Footer";
 import dropDown from "../../assets/images/images.png"
+import ExplorerService from "../../services/ExplorerService";
+
 export default function ExplorerPage() {
   const [placeData, setData] = useState([]);
   const [option, setOptions] = useState("");
   const navigate = useNavigate();
   // To fetch all the data
   useEffect(() => {
-    fetch("https://nijin-server.vercel.app/api/explorer")
-      .then((res) => res.json())
-      .then((placeData) => {
-        setData(placeData);
-      });
+    const fetchData=async()=>{
+      const placeData=await ExplorerService.getAllPlaces();
+      setData(placeData);
+    };
+    fetchData();
+
   }, []);
 
   //  To navigate to another page on click

@@ -7,11 +7,8 @@ import Card from "../../components/Card/Card";
 import "../Explorer/ExplorerPage.css";
 import { useNavigate } from "react-router";
 import { FadeLoader } from "react-spinners";
+import ExplorerService from "../../services/ExplorerService";
 
-const api = {
-  key: "c43e8df78d7b635d66c3c8c48a047e0d",
-  base: "https://api.openweathermap.org/data/2.5/",
-};
 
 export default function DetailsPage() {
   const [weather, setWeather] = useState({});
@@ -21,59 +18,44 @@ export default function DetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // To fetch details of selected place
-  useEffect(() => {
-    fetch(`${api.base}weather?q=${place}&units=metric&APPID=${api.key}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setWeather(result);
-      })
-      .catch((error) => {
-        navigate("/home");
-      });
-    fetch(`https://nijin-server.vercel.app/api/explorer/places/${place}`)
-      .then((res) => res.json())
-      .then((placeData) => {
-        setData(placeData);
 
-        setIsLoading(false);
-      })
-      .catch((error) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const weatherData = await ExplorerService.getWeather(place);
+        setWeather(weatherData);
+
+        const placeData = await ExplorerService.getPlaceData(place);
+        setData(placeData);
+      
+        // Fetch related places
+        if (placeData.relatedPlaces) {
+          const relatedPlacesData = await ExplorerService.getRelatedPlaces(placeData.relatedPlaces);
+          setRelatedPlaces(relatedPlacesData);
+          setIsLoading(false);
+
+        }
+      } catch (error) {
         navigate("/home");
-      });
+      }
+    };
+
+    fetchData();
   }, [place, navigate]);
 
-  // * to fetch related places
-  useEffect(() => {
-    if (placeData.relatedPlaces) {
-      const fetchRequests = placeData.relatedPlaces.map((relatedPlaceName) =>
-        fetch(
-          `https://nijin-server.vercel.app/api/explorer/places/${relatedPlaceName}`
-        ).then((res) => res.json())
-      );
-
-      Promise.all(fetchRequests).then((relatedPlacesData) => {  
-          setRelatedPlaces(relatedPlacesData);
-      });
-    }
-  }, [placeData.relatedPlaces]);
 
   // To split the para content
   const placeDescription = placeData.fullDescription
-  ?.split("\\n")
-  .map((content, idx) => {
-
-    return (
-      <div key={`${content}-${idx}`}>
-        <p className="para-content">
-          {content}
-        </p>
-        <br></br>
-        <br></br>
-      </div>
-    );
-  });
-
+    ?.split("\\n")
+    .map((content, idx) => {
+      return (
+        <div key={`${content}-${idx}`}>
+          <p className="para-content">{content}</p>
+          <br></br>
+          <br></br>
+        </div>
+      );
+    });
 
   return (
     <>
