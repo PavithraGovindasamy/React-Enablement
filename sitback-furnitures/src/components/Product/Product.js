@@ -12,7 +12,7 @@ export default function Product() {
       .then((res) => res.json())
       .then((productData) => {
         setData(productData);
-        setIsLoading(false);
+        setIsLoading(false);       
       });
   }, []);
   return (

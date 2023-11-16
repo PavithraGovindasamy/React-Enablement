@@ -9,8 +9,6 @@ export default function HomePage() {
       <Header />
       <Product />
       <Footer></Footer>
-      {/* <div className="fixed-container"></div> */}
-      {/* <p>Footer</p> */}
     </>
   );
 }

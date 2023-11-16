@@ -1,29 +1,53 @@
-import dropdown from '../../assests/images/dropdown.png'
-import './Header.css';
+import dropdown from "../../assests/images/dropdown.png";
+import "./Header.css";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
 
-export default function Header(){
-   
-      const navigate=useNavigate();
-    function handleHeaderClick(){
-        navigate(`/`)    
-    } 
-    
-    return(
-        <>
-        <div className="header-container">
-            <p className='menu-heading' onClick={handleHeaderClick}>SITBACK</p>
-            <ul className='menu-container'>
-                <li>COUCHES</li>
-                <li>CHAIRS</li>
-                <li>DINING</li>
-            </ul>
-            <div className='user-details'>
-                <p>Nijin Vinodan</p>
-                <img src={dropdown} alt="dropdown"></img>
-            </div>
+export default function Header() {
+  const navigate = useNavigate();
+  function handleHeaderClick() {
+    navigate(`/`);
+  }
+
+ 
+
+  return (
+    <>
+      <div className="header-container">
+        <p className="menu-heading" onClick={handleHeaderClick}>
+          SITBACK
+        </p>
+        <ul className="menu-container">
+          <NavLink
+            to="/categories/couches"
+            style={({ isActive }) => ({
+              color: isActive ? "black" : "yellow",
+            })}
+          >
+            COUCHES
+          </NavLink>
+          <NavLink
+            to="/categories/chairs"
+            style={({ isActive }) => ({
+              color: isActive ? "black" : "yellow",
+            })}
+          >
+            CHAIRS
+          </NavLink>
+          <NavLink
+            to="/categories/dining"
+            style={({ isActive }) => ({
+              color: isActive ? "black" : "yellow",
+            })}
+          >
+            DINING
+          </NavLink>
+        </ul>
+        <div className="user-details">
+          <p>Nijin Vinodan</p>
+          <img src={dropdown} alt="dropdown"></img>
         </div>
-        </>
-    );
-
+      </div>
+    </>
+  );
 }

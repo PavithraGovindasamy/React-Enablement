@@ -1,6 +1,18 @@
 .product-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 106px;
+  width: 97%;
+  margin-left: 22px;
+  }
+  
+
+
+  .loader-container {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 122px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
   

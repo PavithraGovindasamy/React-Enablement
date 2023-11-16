@@ -13,7 +13,7 @@ export default function Card({ category, photo, description}) {
   
   return (
     <div className="cards">
-     <div className="images">
+     <div className="card-images">
      {photo.length>0 && <Image images={photo} category={category}></Image>} 
      </div>
       <p className="cards-heading">{category}</p>

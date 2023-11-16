@@ -1,42 +1,42 @@
 .cards {
-    width: 33.111%;
-    height: 30%;
-    padding: 12px;
-  }
-  .cards img {
-    width: 100%;
-  }
-  
-  .cards-heading {
-    font-size: 28px;
-    margin-top: 8px;
-    font-weight: 500;
-    margin-bottom: 12px;
-    margin-left: 10px;
-    color: #000;
-  }
-  .city-name {
-    font-weight: bold;
-    margin-bottom: 36px;
-    font-size: 20px;
-  }
-  .description {
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: 450;
-    color: #000;
-    height: 200px;
-    overflow: hidden;
-    margin-left: 10px;
+  width: 33.111%;
+  height: 30%;
+  padding: 12px;
+}
+.cards img {
+  width: 100%;
+}
 
-    
-  }
+.cards-heading {
+  font-size: 28px;
+  margin-top: 8px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  margin-left: 10px;
+  color: #000;
+}
+.city-name {
+  font-weight: bold;
+  margin-bottom: 36px;
+  font-size: 20px;
+}
+.description {
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 450;
+  color: #000;
+  height: 200px;
+  overflow: hidden;
+  margin-left: 10px;
+
   
-  .destination-button{
-      margin-top: 17px;
-  }
-  
-  .destination-section button{
-      margin-top: 22px;
-      margin-bottom: 70px;
-  }
+}
+
+.destination-button{
+    margin-top: 17px;
+}
+
+.destination-section button{
+    margin-top: 22px;
+    margin-bottom: 70px;
+}
