@@ -1,0 +1,72 @@
+/** promo-section **/
+.promo-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+}
+/** explorer-section **/
+
+.explorer-section {
+  padding-left: 120px;
+  color: #7b2159;
+  margin-top: 150px;
+}
+.explorer-description {
+  font-size: 70px;
+  width: 82%;
+  font-weight: 250;
+  margin-top: 28px;
+  letter-spacing: 4px;
+  margin-bottom: 87px;
+}
+.explorer-description span {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.explorer-heading {
+  font-size: 24px;
+}
+.explorer-section button {
+  margin-top: 96px;
+}
+
+.explorer-image img {
+  width: 1000px;
+  height: 700px;
+  object-fit: cover;
+}
+img {
+  width: 100%;
+}
+/** dropdown menu **/
+.city {
+  width: 719px;
+  position: absolute;
+  height: 72px;
+  padding-left: 28px;
+  color: #6f6f6f;
+  font-size: 18px;
+  border: 1px solid #000;
+  
+}
+
+
+
+.icon {
+  position: absolute;
+  top: 26px;
+  left: 668px;
+  width: 33px;
+  height: 25px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-size: 45px 28px;
+}

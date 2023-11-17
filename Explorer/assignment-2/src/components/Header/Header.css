@@ -1,0 +1,32 @@
+/** header **/
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 26px;
+  }
+  /** image-container **/
+  .image-container {
+    margin-left: 61px;
+  }
+  
+  .image-container img {
+    width: 138px;
+    cursor: pointer;
+  }
+
+/** menu-container **/
+.menu-container {
+    margin-right: 57px;
+    color: #7b2159;
+  }
+  .menu-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 52px;
+  }
+  ul li {
+    list-style-type: none;
+    font-weight: 600;
+    cursor: pointer;
+  }

@@ -1,0 +1,17 @@
+button {
+  background-color: #7f1b5b;
+  padding: 11px 14px;
+  font-size: 19px;
+  width: 160px;
+  height: 49px;
+  color: #fff;
+  border: 2px #702053;
+  cursor: pointer;
+}
+
+.big-button {
+    padding: 12px;
+    width: 232px;
+    font-weight: 500;
+    border: 1px solid #fff;
+}
