@@ -8,11 +8,13 @@
     border: 1px solid #000;
 }
 
-#selected-option{
+.absoluteSelect {
+    position: absolute;
+    background-color: #fff;
     width: 719px;
     height: 72px;
     padding-left: 28px;
+    border: 1px solid black;
     color: #6f6f6f;
     font-size: 18px;
-    border: 1px solid #000;
   }

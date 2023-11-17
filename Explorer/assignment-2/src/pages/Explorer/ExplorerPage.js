@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import DestinationSection from "../../DestinationSection/DestinationSection";
+import DestinationSection from "../../components/DestinationSection/DestinationSection";
 import cover from "../../assets/images/banner.webp";
 import "./ExplorerPage.css";
 import { useNavigate } from "react-router";
@@ -46,9 +46,10 @@ export default function ExplorerPage() {
           </p>
           <div className="input-container">
             <Select
-              id="selected-option"
+             className="input-field"
               options={placeData}
               onChange={handleDropdown}
+              isAbsolute={true}
             />
 
             <img className="icon" src={dropDown} alt="Icon" />

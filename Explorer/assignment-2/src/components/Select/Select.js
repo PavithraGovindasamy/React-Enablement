@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Select.css'
-export default function Select({ options, onChange ,className,id}) {
+import './Select.css';
+
+export default function Select({ options, onChange, className, isAbsolute }) {
   const [selectedOption, setSelectedOption] = useState();
 
   const handleSelectChange = (e) => {
@@ -10,11 +11,12 @@ export default function Select({ options, onChange ,className,id}) {
     if (onChange) {
       onChange(selectedValue);
     }
-
   };
 
+  const selectClass = isAbsolute ? 'absoluteSelect' : className;
+
   return (
-    <select id={id} className={className} label={"Choose"} value={selectedOption} onChange={handleSelectChange}>
+    <select className={`selectComponent ${selectClass}`} label={"Choose"} value={selectedOption} onChange={handleSelectChange}>
       <option value="">Choose</option>
       {options.map((item, index) => (
         <option key={`${index}`} value={item.city}>
@@ -24,4 +26,3 @@ export default function Select({ options, onChange ,className,id}) {
     </select>
   );
 }
-

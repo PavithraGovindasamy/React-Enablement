@@ -7,7 +7,7 @@ import "../Explorer/ExplorerPage.css";
 import { useNavigate } from "react-router";
 import { FadeLoader } from "react-spinners";
 import ExplorerService from "../../services/ExplorerService";
-import DestinationSection from "../../DestinationSection/DestinationSection";
+import DestinationSection from "../../components/DestinationSection/DestinationSection";
 
 export default function DetailsPage() {
   const [weather, setWeather] = useState({});
