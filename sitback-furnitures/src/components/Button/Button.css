@@ -1,20 +1,20 @@
 button{
-    margin: 8px;
-    font-size: 13px;
-    width: 129px;
-    height: 37px;
-    color: #fff;
-    border: 2px #702053;
-    cursor: pointer;
-    font-weight: 700;
-    background-color: black;
+  margin: 8px;
+  font-size: 13px;
+  width: 129px;
+  height: 37px;
+  color: #fff;
+  border: 2px #702053;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: black;
 }
 #wishlist-button{
-    background-color: white;
-    color:rgb(149,149,149);
-  }
+  background-color: white;
+  color:rgb(149,149,149);
+}
 
-  #cart-button{
-    background-color: black;
-    
-  }
+#cart-button{
+  background-color: black;
+  
+}

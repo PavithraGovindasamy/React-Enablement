@@ -1,0 +1,17 @@
+.cart-container{
+    position: fixed;
+    right: 0;
+    background-color:#F7F7F7;
+    height: 100vh;
+    width: 425px;
+    top: 76px;
+}
+
+.cart-header{
+    display: flex;
+    margin-top: 48px;
+    margin-left: 34px;
+    gap: 44px;
+    font-size: 18px;
+    font-weight: 500;
+}

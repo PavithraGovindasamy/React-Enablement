@@ -4,15 +4,25 @@
   margin-top: 106px;
   width: 97%;
   margin-left: 22px;
-  }
-  
+  overflow-y: auto;                  /* new */
+
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.shopping-container {
+  display: flex;
+}
 
 
-  .loader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
+
+.shopping-container {
+  overflow: hidden;
+}
+

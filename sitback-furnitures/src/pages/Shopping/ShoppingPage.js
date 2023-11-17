@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import "./ShoppingPage.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import {ClipLoader } from "react-spinners";
+import Cart from      '../../components/Cart/Cart.js'
+
 
 export default function ShoppingPage() {
   const [shoppingData, setShoppingData] = useState([]);
@@ -35,13 +37,19 @@ export default function ShoppingPage() {
             />
             </div>
           ):(
-            <div className="product-container">
+            <div className="shopping-container">
+                <div className="product-container">
             {shoppingData.map((item) => (
               <ProductCard key={`${item.id}`} {...item}></ProductCard>
             ))}
             </div>
+            <Cart/>
+
+            </div>
+          
           )
         }
+  
       
      
       

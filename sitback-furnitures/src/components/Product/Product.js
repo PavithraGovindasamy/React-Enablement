@@ -2,7 +2,6 @@ import { CircleLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card.js";
 import './Product.css'
-import Button from '../../components/Button/Button.js';
 
 export default function Product() {
   const [productData, setData] = useState([]);
@@ -12,7 +11,7 @@ export default function Product() {
       .then((res) => res.json())
       .then((productData) => {
         setData(productData);
-        setIsLoading(false);       
+        setIsLoading(false);
       });
   }, []);
   return (
@@ -35,7 +34,7 @@ export default function Product() {
           <>
           <div className="container">
             {productData.map((item,index) => (
-              <Card {...item} key={`${item.place}-${index}`}></Card>
+              <Card {...item} key={`${item.id}-${index}`}></Card>
             ))}
           </div>
        

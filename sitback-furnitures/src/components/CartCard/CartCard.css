@@ -1,0 +1,19 @@
+.cartCard-container {
+  display: flex;
+}
+
+.cartCard-header {
+    margin-left: 73px;
+    width: 317px;
+    background-color: white;
+    height: 81px;
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+}
+.cartCart-tag{
+    margin-left: 94px;
+}
+.cartWishlist-tag{
+    margin-left: 94px;
+}
