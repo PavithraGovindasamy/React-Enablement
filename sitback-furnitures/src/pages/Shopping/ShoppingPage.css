@@ -2,10 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 106px;
-  width: 97%;
-  margin-left: 22px;
-  overflow-y: auto;                  /* new */
-
+  overflow-y: auto;
+  align-items: center;
+  margin-left: 55px;
 }
 
 .loader-container {
@@ -15,12 +14,6 @@
   justify-content: center;
   height: 100vh;
 }
-
-.shopping-container {
-  display: flex;
-}
-
-
 
 .shopping-container {
   overflow: hidden;

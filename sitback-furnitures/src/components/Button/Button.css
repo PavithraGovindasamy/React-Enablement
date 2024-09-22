@@ -3,18 +3,23 @@ button{
   font-size: 13px;
   width: 129px;
   height: 37px;
-  color: #fff;
   border: 2px #702053;
   cursor: pointer;
   font-weight: 700;
   background-color: black;
+  color: white ;
+
+
 }
 #wishlist-button{
   background-color: white;
   color:rgb(149,149,149);
 }
 
-#cart-button{
-  background-color: black;
-  
+
+button .active{
+  background-color: black !important;
 }
+
+
+

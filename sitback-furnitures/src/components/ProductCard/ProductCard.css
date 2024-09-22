@@ -1,13 +1,13 @@
 .product-cards {
-  width: 25%;
-  /* height: 20%; */
+  width: 24%;
   padding: 12px;
+  
 }
 
 .images  img{
   height: 190px;
-  width: 396px;
-  border-radius: 0px 8px 8px 18px;
+    width: 381px;
+    border-radius: 0px 8px 8px 18px;
 }
 
 .container {

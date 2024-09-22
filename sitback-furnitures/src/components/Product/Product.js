@@ -28,7 +28,7 @@ export default function Product() {
               aria-label="Loading Spinner"
               data-testid="loader"
             />
-            <p>Loading bro...wait keep quiet</p>
+            <p>Loading..Please wait</p>
           </div>
         ) : (
           <>

@@ -9,12 +9,10 @@ const Image = ({ images, category, size, isAbsolute }) => {
 
   const imageStyle = isAbsolute
     ? {
-        position: 'absolute',
-        marginLeft: '24px',
-        marginTop: '110px',
         width: size.width,
         height: size.height,
-        borderRadius: '17px'
+        borderRadius: '17px',
+        position: 'absolute'
       }
       :{};
     

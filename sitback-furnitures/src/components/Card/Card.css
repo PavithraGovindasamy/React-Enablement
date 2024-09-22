@@ -32,11 +32,17 @@
   
 }
 
-.destination-button{
+#destination-button{
     margin-top: 17px;
+      background-color: black;
+      color: white ;
+  
 }
 
 .destination-section button{
     margin-top: 22px;
     margin-bottom: 70px;
+}
+.wishlist-tag{
+  color: rgb(149, 149, 149)
 }

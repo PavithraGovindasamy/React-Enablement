@@ -15,3 +15,54 @@
     font-size: 18px;
     font-weight: 500;
 }
+.destination-button{
+    margin-top: 17px;
+      background-color: black;
+      color: white ;
+  
+}
+.cart-item-image{
+    width: 30px;
+    height: 30px;
+}
+.wishlist-item-image{
+    width: 30px;
+    height: 30px;
+}
+.cart-list{
+    overflow: scroll;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  .cartCard-container {
+    display: flex;
+  }
+  
+  .cartCard-header {
+      margin-left: 73px;
+      width: 289px;
+      background-color: white;
+      height: 81px;
+      display: flex;
+      margin-top: 30px;
+      flex-direction: column;
+  }
+  .cartCart-tag{
+      margin-left: 94px;
+  }
+  .cartWishlist-tag{
+      margin-left: 94px;
+  }
+  .quantity-tag{
+    display: flex;
+    margin-left: 200px;
+    background: white;
+    gap: 20px;
+  }
+  .cart-item{
+    width: 350px;
+    background: white;
+    display: flex;
+  }

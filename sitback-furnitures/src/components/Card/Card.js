@@ -4,6 +4,7 @@ import  {useNavigate} from "react-router";
 import PropTypes from "prop-types";
 import Image from "../Images/Image.js"
 import Button from "../Button/Button";
+import './Card.css';
 export default function Card({ category, photo, description}) {
     
   const navigate=useNavigate();
@@ -14,11 +15,11 @@ export default function Card({ category, photo, description}) {
   return (
     <div className="cards">
      <div className="card-images">
-     {photo.length>0 && <Image images={photo} category={category}></Image>} 
+     {<Image images={photo} category={category}></Image>} 
      </div>
       <p className="cards-heading">{category}</p>
       <p className="description">{description}</p>
-      <Button className="destination-button" label={"SHOP NOW"} clicked={handleClick} ></Button>
+      <Button className="active" label={"SHOP NOW"} clicked={handleClick} ></Button>
     </div>
   );
 }

@@ -9,8 +9,6 @@ export default function Header() {
     navigate(`/`);
   }
 
- 
-
   return (
     <>
       <div className="header-container">
@@ -20,25 +18,25 @@ export default function Header() {
         <ul className="menu-container">
           <NavLink
             to="/categories/couches"
-            style={({ isActive }) => ({
-              color: isActive ? "black" : "yellow",
-            })}
+            className={({ isActive }) =>
+              isActive ? "active-link" : "inactive-link"
+            }
           >
             COUCHES
           </NavLink>
           <NavLink
             to="/categories/chairs"
-            style={({ isActive }) => ({
-              color: isActive ? "black" : "yellow",
-            })}
+            className={({ isActive }) =>
+            isActive ? "active-link" : "inactive-link"
+          }
           >
             CHAIRS
           </NavLink>
           <NavLink
             to="/categories/dining"
-            style={({ isActive }) => ({
-              color: isActive ? "black" : "yellow",
-            })}
+            className={({ isActive }) =>
+            isActive ? "active-link" : "inactive-link"
+          }
           >
             DINING
           </NavLink>
