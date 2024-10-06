@@ -1,11 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import './Images.css';
+import defaultImage from '../../assests/images/photo.jpg';
 
-const Image = ({ images, category, size, isAbsolute }) => {
-  const handleImageError = (e) => {
-    e.target.style.display = 'none';
-  };
+const Image = ({ images, category, size, isAbsolute,id }) => {
+  const [currentSrc,setCurrentSrc]=useState(images || defaultImage);
+
+  const onImageError = (e) => {
+    setCurrentSrc(defaultImage);
+    console.log("HEY IMAGE ERROR "+e+"sjs"+defaultImage);
+  }
 
   const imageStyle = isAbsolute
     ? {
@@ -20,9 +24,10 @@ const Image = ({ images, category, size, isAbsolute }) => {
   return (
     <div className="images-container">
       <img
-        src={images}
+        id={id}
+        src={currentSrc}
         alt={category}
-        onError={handleImageError}
+        onError={onImageError} 
         style={imageStyle}
       />
     </div>

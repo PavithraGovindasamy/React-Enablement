@@ -27,9 +27,7 @@ export default function CardCart({ value }) {
 
     fetchItems();
   }, [value]);
-  const onImageError = (e) => {
-    e.target.src = defaultImage
-  }
+ 
   return (
     <>
       {value && (
@@ -39,7 +37,8 @@ export default function CardCart({ value }) {
               const { name, photo, price, quantity } = item;
               return (
                 <li key={index}>
-                  <Image images={photo ? photo : defaultImage} size={size} isAbsolute  onerror={onImageError} />
+                  <Image images={photo ? photo : defaultImage} size={size} isAbsolute   onLoad={() => console.log('Image loaded successfully')} 
+ />
                   <div className="cartCard-header">
                     <p className="cartCart-tag">{name}</p>
                     <p className="cartWishlist-tag">

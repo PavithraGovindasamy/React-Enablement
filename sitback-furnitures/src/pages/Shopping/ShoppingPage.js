@@ -10,8 +10,12 @@ export default function ShoppingPage() {
   const [shoppingData, setShoppingData] = useState([]);
   const { productName } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [cartItems, setCartItems] = useState(() => JSON.parse(localStorage.getItem('cartInfo')) || []);
-  const [wishlistItems, setWishlistItems] = useState(() => JSON.parse(localStorage.getItem('wishlistInfo')) || []);
+  const [cartItems, setCartItems] = useState(
+    () => JSON.parse(localStorage.getItem("cartInfo")) || []
+  );
+  const [wishlistItems, setWishlistItems] = useState(
+    () => JSON.parse(localStorage.getItem("wishlistInfo")) || []
+  );
   const [highlightedProductId, setHighlightedProductId] = useState(null);
 
   var params = productName.toLowerCase();
@@ -29,30 +33,43 @@ export default function ShoppingPage() {
 
   const handleAddToCart = (newProduct) => {
     const existingProductIndex = cartItems.findIndex(item => item.name === newProduct.name);
-
+    
     if (existingProductIndex > -1) {
-      const updatedCart = [...cartItems];
+      // Update quantity if the product already exists in the cart
+      const updatedCart = cartItems.map(item =>
+        item.name === newProduct.name
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
       setCartItems(updatedCart);
-      localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
     } else {
-      const updatedCart = [...cartItems, newProduct];
+      // Add new product to the cart
+      const updatedCart = [...cartItems, { ...newProduct, quantity: 1 }];
       setCartItems(updatedCart);
-      localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
     }
+  
+    // Remove the product from the wishlist
+    const updatedWishlist = wishlistItems.filter(item => item.name !== newProduct.name);
+    setWishlistItems(updatedWishlist);
+  
+    // Sync with local storage
+    localStorage.setItem('cartInfo', JSON.stringify(cartItems));
+    localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist)); 
   };
 
   const handleAddToWishlist = (newProduct) => {
-    const existingProductIndex = wishlistItems.findIndex(item => item.name === newProduct.name);
+    const existingProductIndex = wishlistItems.findIndex(
+      (item) => item.name === newProduct.name
+    );
     if (existingProductIndex > -1) {
       const updatedWishlist = [...wishlistItems];
       setCartItems(updatedWishlist);
-      localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist));
+      localStorage.setItem("wishlistInfo", JSON.stringify(updatedWishlist));
     } else {
       const updatedWishlist = [...wishlistItems, newProduct];
       setWishlistItems(updatedWishlist);
-      localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist));
+      localStorage.setItem("wishlistInfo", JSON.stringify(updatedWishlist));
     }
-   
   };
 
   const handleCardClick = (id) => {
@@ -75,13 +92,18 @@ export default function ShoppingPage() {
                 {...item}
                 onAddToCart={handleAddToCart}
                 onAddToWishlist={handleAddToWishlist}
-                isHighlighted={highlightedProductId === item.id} 
-                onCardClick={() => handleCardClick(item.id)} 
+                isHighlighted={highlightedProductId === item.id}
+                onCardClick={() => handleCardClick(item.id)}
                 quantity={0}
               />
             ))}
           </div>
-          <Cart cartItems={cartItems} wishlistItems={wishlistItems} />
+          <Cart
+            cartItems={cartItems}
+            wishlistItems={wishlistItems}
+            setCartItems={setCartItems}
+            handleAddToCart={handleAddToCart} // Pass down the function
+          />
         </div>
       )}
     </>
