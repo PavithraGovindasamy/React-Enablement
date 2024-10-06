@@ -1,68 +1,76 @@
-.cart-container{
-    position: fixed;
-    right: 0;
-    background-color:#F7F7F7;
-    height: 100vh;
-    width: 425px;
-    top: 76px;
+.cart-container {
+  position: fixed;
+  right: 0;
+  background-color: #f7f7f7;
+  height: 100vh;
+  width: 425px;
+  top: 76px;
+  overflow-y: auto; /* Allow scrolling */
 }
 
-.cart-header{
-    display: flex;
-    margin-top: 48px;
-    margin-left: 34px;
-    gap: 44px;
-    font-size: 18px;
-    font-weight: 500;
+.cart-header {
+  display: flex;
+  margin-top: 48px;
+  margin-left: 35px;
+  gap: 44px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 24px;
 }
-.destination-button{
-    margin-top: 17px;
-      background-color: black;
-      color: white ;
-  
+
+.cart-item-image,
+.wishlist-item-image {
+  width: 125px;
+  height: 90px;
+  border-radius: 11%;
+  margin-right: 16px;
+  margin-top: 17px;
 }
-.cart-item-image{
-    width: 30px;
-    height: 30px;
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
 }
-.wishlist-item-image{
-    width: 30px;
-    height: 30px;
+
+.cart-item {
+  display: flex;
+  align-items: center; 
+  background: white;
+  padding: 10px;
+  margin-left: 31px;
+  height: 96px;
+  width: 363px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
-.cart-list{
-    overflow: scroll;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-  }
-  .cartCard-container {
-    display: flex;
-  }
-  
-  .cartCard-header {
-      margin-left: 73px;
-      width: 289px;
-      background-color: white;
-      height: 81px;
-      display: flex;
-      margin-top: 30px;
-      flex-direction: column;
-  }
-  .cartCart-tag{
-      margin-left: 94px;
-  }
-  .cartWishlist-tag{
-      margin-left: 94px;
-  }
-  .quantity-tag{
-    display: flex;
-    margin-left: 200px;
-    background: white;
-    gap: 20px;
-  }
-  .cart-item{
-    width: 350px;
-    background: white;
-    display: flex;
-  }
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column; /* Stack name and price */
+}
+
+
+.wishlist-item-details {
+  display: flex;
+  flex-direction: column; /* Stack name and price */
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control button {
+  background-color: white; 
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+  width: 30px; 
+  height: 30px;
+  border-radius: 4px;
+}
+.cart-item-name,.cart-item-price,.wishlist-item-name,.wishlist-item-name{
+font-size: 14px;
+}

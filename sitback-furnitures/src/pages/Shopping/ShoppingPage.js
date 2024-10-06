@@ -12,6 +12,7 @@ export default function ShoppingPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(() => JSON.parse(localStorage.getItem('cartInfo')) || []);
   const [wishlistItems, setWishlistItems] = useState(() => JSON.parse(localStorage.getItem('wishlistInfo')) || []);
+  const [highlightedProductId, setHighlightedProductId] = useState(null);
 
   var params = productName.toLowerCase();
 
@@ -27,15 +28,35 @@ export default function ShoppingPage() {
   }, [params]);
 
   const handleAddToCart = (newProduct) => {
-    const updatedCart = [...cartItems, newProduct];
-    setCartItems(updatedCart);
-    localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
+    const existingProductIndex = cartItems.findIndex(item => item.name === newProduct.name);
+
+    if (existingProductIndex > -1) {
+      const updatedCart = [...cartItems];
+      setCartItems(updatedCart);
+      localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
+    } else {
+      const updatedCart = [...cartItems, newProduct];
+      setCartItems(updatedCart);
+      localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
+    }
   };
 
   const handleAddToWishlist = (newProduct) => {
-    const updatedWishlist = [...wishlistItems, newProduct];
-    setWishlistItems(updatedWishlist);
-    localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist));
+    const existingProductIndex = wishlistItems.findIndex(item => item.name === newProduct.name);
+    if (existingProductIndex > -1) {
+      const updatedWishlist = [...wishlistItems];
+      setCartItems(updatedWishlist);
+      localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist));
+    } else {
+      const updatedWishlist = [...wishlistItems, newProduct];
+      setWishlistItems(updatedWishlist);
+      localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist));
+    }
+   
+  };
+
+  const handleCardClick = (id) => {
+    setHighlightedProductId(id);
   };
 
   return (
@@ -54,6 +75,9 @@ export default function ShoppingPage() {
                 {...item}
                 onAddToCart={handleAddToCart}
                 onAddToWishlist={handleAddToWishlist}
+                isHighlighted={highlightedProductId === item.id} 
+                onCardClick={() => handleCardClick(item.id)} 
+                quantity={0}
               />
             ))}
           </div>

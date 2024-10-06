@@ -3,20 +3,22 @@ import Button from "../Button/Button";
 import './ProductCard.css';
 import ShieldIcon from '../../assests/images/shieldIcon.png';
 import defaultImage from '../../assests/images/photo.jpg';
-import { useState } from 'react';
-export default function ProductCard({ name, photo, description, guarantee, price, onAddToCart, onAddToWishlist }) {
+
+export default function ProductCard({ name, photo, description, guarantee, price, onAddToCart, onAddToWishlist, isHighlighted, onCardClick, quantity }) {
   const formattedPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const [button, setButton] = useState('');
-  const newProduct = { name, photo, price };
 
   const handleAddToCart = () => {
-    setButton("ADD TO CART");
+
+    const newProduct = { name, photo, price, quantity: 1 }; 
     onAddToCart(newProduct); 
+    onCardClick();  
   };
 
   const handleAddToWishlist = () => {
-    setButton("ADD TO WISHLIST");
+
+    const newProduct = { name, photo, price }; 
     onAddToWishlist(newProduct);
+    onCardClick(); 
   };
 
   const onImageError = (e) => {
@@ -24,7 +26,7 @@ export default function ProductCard({ name, photo, description, guarantee, price
   };
 
   return (
-    <div className="product-cards">
+    <div className={`product-cards ${isHighlighted ? 'highlighted' : ''}`} onClick={onCardClick}> 
       <div className="images">
         {photo && (
           <Image
@@ -51,13 +53,11 @@ export default function ProductCard({ name, photo, description, guarantee, price
           id="wishlist-button"
           label="ADD TO WISHLIST"
           clicked={handleAddToWishlist}
-          onSelected={button === "ADD TO WISHLIST"}
         />
         <Button
           className="active"
           label="ADD TO CART"
           clicked={handleAddToCart}
-          onSelected={button === "ADD TO CART"}
         />
       </div>
     </div>
