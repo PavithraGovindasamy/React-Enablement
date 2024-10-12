@@ -17,6 +17,10 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
   if (isCartEmpty && isWishlistEmpty) {
     return null;
   }
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString();
+  };
+  
 
   const handleQuantityChange = (item, change) => {
     const updatedCart = cartItems.map(cartItem => {
@@ -78,7 +82,7 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
           <div className="cart-footer">
             <div className="cart-amount">
               <p className="cart-total-label">TOTAL AMOUNT</p>
-              <p className="cart-total-amount">&#x20b9; 39,300</p>
+              <p className="cart-total-amount">&#x20b9; {calculateTotalPrice()}</p>
             </div>
             <div>
             <Button className="active" label={"PLACE ORDER"} clicked={handleClick}></Button>

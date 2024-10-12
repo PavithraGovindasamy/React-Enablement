@@ -6,8 +6,8 @@ button{
   border: 2px #702053;
   cursor: pointer;
   font-weight: 700;
-  background-color: black;
   color: white ;
+  background-color: black;
 
 
 }
@@ -17,8 +17,9 @@ button{
 }
 
 
-button .active{
+ .active{
   background-color: black !important;
+  color: white !important;
 }
 
 

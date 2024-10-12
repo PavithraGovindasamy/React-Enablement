@@ -1,3 +1,5 @@
+/** START-- Header content **/
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -47,3 +49,4 @@ ul li {
   text-decoration: none;
   color: #000;
 }
+/** END-- Header content **/

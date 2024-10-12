@@ -2,7 +2,10 @@ import dropdown from "../../assests/images/dropdown.png";
 import "./Header.css";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
-
+/**
+ *  Class which returns the header content
+ * @returns Header component
+ */
 export default function Header() {
   const navigate = useNavigate();
   function handleHeaderClick() {

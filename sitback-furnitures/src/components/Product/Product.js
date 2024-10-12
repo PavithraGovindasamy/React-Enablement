@@ -2,10 +2,14 @@ import { CircleLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card.js";
 import './Product.css'
-
+/**
+ *  Class which returns the products content
+ * @returns Product component
+ */
 export default function Product() {
   const [productData, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     fetch("https://jsonmockserver.vercel.app/api/shopping/furniture/categories")
       .then((res) => res.json())
@@ -14,6 +18,7 @@ export default function Product() {
         setIsLoading(false);
       });
   }, []);
+
   return (
     <>
       <div className="home-container">

@@ -99,9 +99,12 @@
   top: 66%;
   font-size: 10px;
   left: 94%;
-  padding: 2px 7px;
+  padding: 3px 9px;
   transform: translate(-100%, 107%);
   font-weight: bold;
+}
+.cart-button-container p{
+  font-size: 11px;
 }
 .wishlist-button-container{
   display: flex;

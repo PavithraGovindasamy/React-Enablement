@@ -1,24 +1,43 @@
+import React, { useState } from "react";
 import Image from "../Images/Image.js";
 import Button from "../Button/Button";
 import './ProductCard.css';
 import ShieldIcon from '../../assests/images/shieldIcon.png';
 import defaultImage from '../../assests/images/photo.jpg';
 
-export default function ProductCard({ name, photo, description, guarantee, price, onAddToCart, onAddToWishlist, isHighlighted, onCardClick, quantity }) {
+export default function ProductCard({ 
+  name, 
+  photo, 
+  description, 
+  guarantee, 
+  price, 
+  onAddToCart, 
+  onAddToWishlist, 
+  isHighlighted, 
+  onCardClick, 
+  quantity 
+}) {
+  const [activeButton, setActiveButton] = useState("cart");
   const formattedPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   const handleAddToCart = () => {
-
     const newProduct = { name, photo, price, quantity: 1 }; 
     onAddToCart(newProduct); 
     onCardClick();  
+    setActiveButton("cart"); 
   };
 
   const handleAddToWishlist = () => {
-
     const newProduct = { name, photo, price }; 
     onAddToWishlist(newProduct);
     onCardClick(); 
+    
+    // Toggle wishlist button's active state
+    if (activeButton === "wishlist") {
+      setActiveButton("cart"); // Deactivate wishlist and reactivate cart
+    } else {
+      setActiveButton("wishlist"); // Activate wishlist and deactivate cart
+    }
   };
 
   const onImageError = (e) => {
@@ -30,7 +49,7 @@ export default function ProductCard({ name, photo, description, guarantee, price
       <div className="images">
         {photo && (
           <Image
-            images={photo ? photo : defaultImage}
+            images={photo}
             className="images"
             onError={onImageError}
           />
@@ -53,11 +72,13 @@ export default function ProductCard({ name, photo, description, guarantee, price
           id="wishlist-button"
           label="ADD TO WISHLIST"
           clicked={handleAddToWishlist}
+          onSelected={activeButton === "wishlist"} 
         />
         <Button
-          className="active"
+          id="cart-button"
           label="ADD TO CART"
           clicked={handleAddToCart}
+          onSelected={activeButton === "cart"}
         />
       </div>
     </div>

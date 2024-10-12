@@ -14,7 +14,7 @@ export default function ShoppingPage() {
     () => JSON.parse(localStorage.getItem("cartInfo")) || []
   );
   const [wishlistItems, setWishlistItems] = useState(
-    () => JSON.parse(localStorage.getItem("wishlistInfo")) || []
+    () => JSON.parse(localStorage.getItem("wishlistInfo"))  || []
   );
   const [highlightedProductId, setHighlightedProductId] = useState(null);
 
@@ -102,7 +102,7 @@ export default function ShoppingPage() {
             cartItems={cartItems}
             wishlistItems={wishlistItems}
             setCartItems={setCartItems}
-            handleAddToCart={handleAddToCart} // Pass down the function
+            handleAddToCart={handleAddToCart}
           />
         </div>
       )}

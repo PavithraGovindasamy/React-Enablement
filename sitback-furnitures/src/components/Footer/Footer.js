@@ -1,4 +1,8 @@
 import './Footer.css';
+/**
+ * Footer content
+ * @returns 
+ */
 export default function Footer(){
     return(
         <>
