@@ -15,10 +15,18 @@ export default function ProductCard({
   onAddToWishlist, 
   isHighlighted, 
   onCardClick, 
-  quantity 
+  quantity ,
+  hasItemsInCart,
+  hasItemsInWishlist
 }) {
   const [activeButton, setActiveButton] = useState("cart");
   const formattedPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const [cartItems, setCartItems] = useState(
+    () => JSON.parse(localStorage.getItem("cartInfo")) || []
+  );
+  const [wishlistItems, setWishlistItems] = useState(
+    () => JSON.parse(localStorage.getItem("wishlistInfo"))  || []
+  );
 
   const handleAddToCart = () => {
     const newProduct = { name, photo, price, quantity: 1 }; 
@@ -45,8 +53,10 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`product-cards ${isHighlighted ? 'highlighted' : ''}`} onClick={onCardClick}> 
-      <div className="images">
+    <div 
+    className={`product-cards ${hasItemsInCart || hasItemsInWishlist ? 'products-flex' : ''}`} 
+    onClick={onCardClick}
+  >      <div className="images">
         {photo && (
           <Image
             images={photo}
@@ -66,6 +76,7 @@ export default function ProductCard({
         <img src={ShieldIcon} alt="shield icon" className="shield-icon" />
         <p>{guarantee} YEARS GUARANTEE</p>
       </div>
+
       <hr />
       <div className="button-container">
         <Button

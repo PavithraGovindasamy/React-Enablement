@@ -7,6 +7,12 @@
   margin-left: 55px;
 }
 
+.product-container.products-flex {
+  width: 92%;
+  column-gap: 26px;
+}
+
+
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -18,4 +24,3 @@
 .shopping-container {
   overflow: hidden;
 }
-

@@ -76,6 +76,9 @@ export default function ShoppingPage() {
     setHighlightedProductId(id);
   };
 
+   const hasItemsInCart = cartItems.length > 0;
+   const hasItemsInWishlist = wishlistItems.length > 0;
+
   return (
     <>
       <Header />
@@ -85,8 +88,8 @@ export default function ShoppingPage() {
         </div>
       ) : (
         <div className="shopping-container">
-          <div className="product-container">
-            {shoppingData.map((item) => (
+          <div className={`product-container ${hasItemsInCart || hasItemsInWishlist ? 'products-flex' : ''}`}>
+          {shoppingData.map((item) => (
               <ProductCard
                 key={item.id}
                 {...item}
@@ -95,6 +98,8 @@ export default function ShoppingPage() {
                 isHighlighted={highlightedProductId === item.id}
                 onCardClick={() => handleCardClick(item.id)}
                 quantity={0}
+                hasItemsInCart={hasItemsInCart}
+                hasItemsInWishlist={hasItemsInWishlist}
               />
             ))}
           </div>
