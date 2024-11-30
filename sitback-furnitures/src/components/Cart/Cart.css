@@ -132,7 +132,7 @@
   display: flex;
   justify-content: space-between; 
   align-items: center; 
-  top:82%;
+  top:84%;
 }
 
 
@@ -152,4 +152,14 @@
 }
 .cart-total-amount{
   font-weight: 500;
+}
+.wishlist-tag.active-link{
+  color: #000;
+  text-decoration: none;
+  border-bottom: 4px solid black;
+}
+.cart-tag.active-link{
+  color: #000;
+  text-decoration: none;
+  border-bottom: 4px solid black;
 }

@@ -8,8 +8,12 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
 
   const navigate=useNavigate();
   const handleClick=()=>{
-      navigate(`/confirmOrder`)    
-  }
+      navigate(`/confirmOrder`,{state :{cartItems}}) ;
+      localStorage.removeItem('cartInfo');
+localStorage.removeItem('wishlistinfo');
+
+
+    }
   
   const isCartEmpty = cartItems.length === 0;
   const isWishlistEmpty = wishlistItems.length === 0;
@@ -39,14 +43,14 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
     <div className="cart-container">
       <div className="cart-header">
         <a
-          className={`cart-tag ${button === "MY CART" ? "active" : ""}`}
+          className={`cart-tag ${button === "MY CART" ? "active-link" : ""}`}
           label="MY CART"
           onClick={() => setButton("MY CART")}
         >
           MY CART
         </a>
         <a
-          className={`wishlist-tag ${button === "MY WISHLIST" ? "active" : ""}`}
+          className={`wishlist-tag ${button === "MY WISHLIST" ? "active-link" : ""}`}
           label="MY WISHLIST"
           onClick={() => setButton("MY WISHLIST")}
         >
