@@ -20,4 +20,8 @@
     margin-top: 110px;
    
   }
+  .images-container img:hover{
+    animation: flip 1s ease-in-out forwards;
+
+  }
   

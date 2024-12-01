@@ -2,18 +2,27 @@ import "./Cart.css";
 import { useState } from "react";
 import Button from "../Button/Button";
 import  {useNavigate} from "react-router";
-
+import ConfirmationModal from "../../Model/ConfirmationModal";
 export default function Cart({ cartItems, wishlistItems, setCartItems, handleAddToCart }) {
   const [button, setButton] = useState("MY CART");
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const navigate=useNavigate();
-  const handleClick=()=>{
+
+    const handlePlaceOrder = () => {
+      setModalOpen(true);
+    };
+  
+    const handleConfirm = () => {
+      setModalOpen(false);
       navigate(`/confirmOrder`,{state :{cartItems}}) ;
       localStorage.removeItem('cartInfo');
-localStorage.removeItem('wishlistinfo');
-
-
-    }
+localStorage.removeItem('wishlistinfo');    };
+  
+    const handleCancel = () => {
+      setModalOpen(false); 
+    };
+  
   
   const isCartEmpty = cartItems.length === 0;
   const isWishlistEmpty = wishlistItems.length === 0;
@@ -89,7 +98,14 @@ localStorage.removeItem('wishlistinfo');
               <p className="cart-total-amount">&#x20b9; {calculateTotalPrice()}</p>
             </div>
             <div>
-            <Button className="active" label={"PLACE ORDER"} clicked={handleClick}></Button>
+            <Button className="active" label={"PLACE ORDER"}  clicked={handlePlaceOrder} ></Button>
+            <ConfirmationModal
+        title="Confirm Order"
+        message="Are you sure you want to place this order?"
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+        isOpen={isModalOpen}
+      />
             </div>
           </div>
         </>
