@@ -25,7 +25,7 @@ export default function ConfirmationPage() {
     <div className="confirmation-message-container">
     <div className="confirmation-modal" >
       <div className="order-confirmation">
-      <h2>Order Confirmation</h2>
+      <h2 className="order-confirmation-heading">Order Confirmation</h2>
         <p>
           Thank you for shopping with us.The items will be delivered within
           7days
@@ -36,7 +36,7 @@ export default function ConfirmationPage() {
         <div className="confirmation-page-container">
         {cartItems.map((item) => (
                <div 
-               className={`product-cards`} 
+               className={`confirmation-cards`} 
              >      <div className="images">
                    {item.photo && (
                      <Image
@@ -53,7 +53,7 @@ export default function ConfirmationPage() {
                    
                  </div>
                  <p className="product-quantity">Quantity: {item.quantity}</p>
-                 <p className="product-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                 <p className="cart-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
 
 </p>
                  </div>
