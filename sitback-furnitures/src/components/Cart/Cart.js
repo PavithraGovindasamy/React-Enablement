@@ -1,42 +1,43 @@
 import "./Cart.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
-import  {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 import ConfirmationModal from "../../Model/ConfirmationModal";
-export default function Cart({ cartItems, wishlistItems, setCartItems, handleAddToCart }) {
-  const [button, setButton] = useState("MY CART");
+
+export default function Cart({ cartItems, wishlistItems, setCartItems, handleAddToCart, activeTabs, setActiveTabs }) {
   const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
+  const handlePlaceOrder = () => {
+    setModalOpen(true);
+  };
 
-    const handlePlaceOrder = () => {
-      setModalOpen(true);
-    };
-  
-    const handleConfirm = () => {
-      setModalOpen(false);
-      navigate(`/confirmOrder`,{state :{cartItems}}) ;
-      localStorage.removeItem('cartInfo');
-localStorage.removeItem('wishlistinfo');    };
-  
-    const handleCancel = () => {
-      setModalOpen(false); 
-    };
-  
-  
+  const handleConfirm = () => {
+    setModalOpen(false);
+    navigate(`/confirmOrder`, { state: { cartItems } });
+    localStorage.removeItem("cartInfo");
+    localStorage.removeItem("wishlistinfo");
+  };
+
+  const handleCancel = () => {
+    setModalOpen(false);
+  };
+
   const isCartEmpty = cartItems.length === 0;
   const isWishlistEmpty = wishlistItems.length === 0;
 
   if (isCartEmpty && isWishlistEmpty) {
     return null;
   }
+
   const calculateTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString();
+    return cartItems
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toLocaleString();
   };
-  
 
   const handleQuantityChange = (item, change) => {
-    const updatedCart = cartItems.map(cartItem => {
+    const updatedCart = cartItems.map((cartItem) => {
       if (cartItem.name === item.name) {
         const newQuantity = cartItem.quantity + change;
         return { ...cartItem, quantity: Math.max(newQuantity, 0) };
@@ -45,39 +46,38 @@ localStorage.removeItem('wishlistinfo');    };
     });
 
     setCartItems(updatedCart);
-    localStorage.setItem('cartInfo', JSON.stringify(updatedCart));
+    localStorage.setItem("cartInfo", JSON.stringify(updatedCart));
+  };
+
+  // Switch active tab locally and update parent state
+  const handleTabSwitch = (tab) => {
+    setActiveTabs(tab); // Update the parent component's activeTabs state
   };
 
   return (
     <div className="cart-container">
       <div className="cart-header">
         <a
-          className={`cart-tag ${button === "MY CART" ? "active-link" : ""}`}
-          label="MY CART"
-          onClick={() => setButton("MY CART")}
+          className={`cart-tag ${activeTabs === "MY CART" ? "active-link" : ""}`}
+          onClick={() => handleTabSwitch("MY CART")}
         >
           MY CART
         </a>
         <a
-          className={`wishlist-tag ${button === "MY WISHLIST" ? "active-link" : ""}`}
-          label="MY WISHLIST"
-          onClick={() => setButton("MY WISHLIST")}
+          className={`wishlist-tag ${activeTabs === "MY WISHLIST" ? "active-link" : ""}`}
+          onClick={() => handleTabSwitch("MY WISHLIST")}
         >
           MY WISHLIST
         </a>
       </div>
 
-      {button === "MY CART" && cartItems.length > 0 && (
+      {activeTabs === "MY CART" && cartItems.length > 0 && (
         <>
           <div className="cart-list">
             {cartItems.map((item, index) => (
               <div key={index} className="cart-item">
                 <div className="image-wrapper">
-                  <img
-                    src={item.photo}
-                    alt={item.name}
-                    className="cart-item-image"
-                  />
+                  <img src={item.photo} alt={item.name} className="cart-item-image" />
                 </div>
                 <div className="cart-item-details">
                   <div id="cart-item-name">{item.name}</div>
@@ -98,29 +98,25 @@ localStorage.removeItem('wishlistinfo');    };
               <p className="cart-total-amount">&#x20b9; {calculateTotalPrice()}</p>
             </div>
             <div>
-            <Button className="active" label={"PLACE ORDER"}  clicked={handlePlaceOrder} ></Button>
-            <ConfirmationModal
-        title="Confirm Order"
-        message="Are you sure you want to place this order?"
-        onConfirm={handleConfirm}
-        onCancel={handleCancel}
-        isOpen={isModalOpen}
-      />
+              <Button className="active" label="PLACE ORDER" clicked={handlePlaceOrder} />
+              <ConfirmationModal
+                title="Confirm Order"
+                message="Are you sure you want to place this order?"
+                onConfirm={handleConfirm}
+                onCancel={handleCancel}
+                isOpen={isModalOpen}
+              />
             </div>
           </div>
         </>
       )}
 
-      {button === "MY WISHLIST" && wishlistItems.length > 0 && (
+      {activeTabs === "MY WISHLIST" && wishlistItems.length > 0 && (
         <div className="cart-list">
           {wishlistItems.map((item, index) => (
             <div key={index} className="cart-item">
               <div className="image-wrapper">
-                <img
-                  src={item.photo}
-                  alt={item.name}
-                  className="wishlist-item-image"
-                />
+                <img src={item.photo} alt={item.name} className="wishlist-item-image" />
               </div>
               <div className="wishlist-item-details">
                 <div id="cart-item-name">{item.name}</div>

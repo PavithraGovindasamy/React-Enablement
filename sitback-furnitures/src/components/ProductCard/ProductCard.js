@@ -40,12 +40,13 @@ export default function ProductCard({
     onAddToWishlist(newProduct);
     onCardClick(); 
     
-    // Toggle wishlist button's active state
     if (activeButton === "wishlist") {
-      setActiveButton("cart"); // Deactivate wishlist and reactivate cart
+      setActiveButton("cart"); 
     } else {
-      setActiveButton("wishlist"); // Activate wishlist and deactivate cart
+      setActiveButton("wishlist");
+
     }
+    
   };
 
   const onImageError = (e) => {

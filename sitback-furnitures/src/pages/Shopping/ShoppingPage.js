@@ -10,6 +10,8 @@ export default function ShoppingPage() {
   const [shoppingData, setShoppingData] = useState([]);
   const { productName } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  // active tab
+  const[activeTabs,setActiveTabs] = useState("My Cart");
   const [cartItems, setCartItems] = useState(
     () => JSON.parse(localStorage.getItem("cartInfo")) || []
   );
@@ -55,6 +57,8 @@ export default function ShoppingPage() {
     // Sync with local storage
     localStorage.setItem('cartInfo', JSON.stringify(cartItems));
     localStorage.setItem('wishlistInfo', JSON.stringify(updatedWishlist)); 
+
+    setActiveTabs("MY CART");
   };
 
   const handleAddToWishlist = (newProduct) => {
@@ -70,6 +74,7 @@ export default function ShoppingPage() {
       setWishlistItems(updatedWishlist);
       localStorage.setItem("wishlistInfo", JSON.stringify(updatedWishlist));
     }
+    setActiveTabs("MY WISHLIST"); 
   };
 
   const handleCardClick = (id) => {
@@ -104,11 +109,13 @@ export default function ShoppingPage() {
             ))}
           </div>
           <Cart
-            cartItems={cartItems}
-            wishlistItems={wishlistItems}
-            setCartItems={setCartItems}
-            handleAddToCart={handleAddToCart}
-          />
+      cartItems={cartItems}
+      wishlistItems={wishlistItems}
+      setCartItems={setCartItems}
+      handleAddToCart={handleAddToCart}
+      activeTabs={activeTabs}
+        setActiveTabs={setActiveTabs}  // Passing function to change the active tab
+    />
         </div>
       )}
     </>
