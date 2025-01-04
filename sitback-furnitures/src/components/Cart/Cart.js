@@ -4,9 +4,25 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import ConfirmationModal from "../../Model/ConfirmationModal";
 
-export default function Cart({ cartItems, wishlistItems, setCartItems, handleAddToCart, activeTabs, setActiveTabs }) {
+export default function Cart({
+  cartItems,
+  wishlistItems,
+  setCartItems,
+  handleAddToCart,
+  activeTabs,
+  setActiveTabs,
+}) {
   const [isModalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem("cartInfo")) || [];
+    const storedWishlistItems = JSON.parse(localStorage.getItem("wishlistInfo")) || [];
+    const storedActiveTab = localStorage.getItem("activeTab") || "MY CART"; 
+
+    setCartItems(storedCartItems);
+    setActiveTabs(storedActiveTab);
+  }, [setCartItems, setActiveTabs]);
 
   const handlePlaceOrder = () => {
     setModalOpen(true);
@@ -16,7 +32,7 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
     setModalOpen(false);
     navigate(`/confirmOrder`, { state: { cartItems } });
     localStorage.removeItem("cartInfo");
-    localStorage.removeItem("wishlistinfo");
+    localStorage.removeItem("wishlistInfo");
   };
 
   const handleCancel = () => {
@@ -49,9 +65,9 @@ export default function Cart({ cartItems, wishlistItems, setCartItems, handleAdd
     localStorage.setItem("cartInfo", JSON.stringify(updatedCart));
   };
 
-  // Switch active tab locally and update parent state
   const handleTabSwitch = (tab) => {
-    setActiveTabs(tab); // Update the parent component's activeTabs state
+    setActiveTabs(tab);
+    localStorage.setItem("activeTab", tab); 
   };
 
   return (

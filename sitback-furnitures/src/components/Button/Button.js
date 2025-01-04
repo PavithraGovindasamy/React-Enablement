@@ -22,8 +22,3 @@ Button.propTypes = {
   onSelected: PropTypes.bool,
   disabled: PropTypes.bool, 
 };
-
-Button.defaultProps = {
-  onSelected: false,
-  disabled: false,
-};
