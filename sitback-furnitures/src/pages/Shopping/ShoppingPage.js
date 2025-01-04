@@ -83,7 +83,9 @@ export default function ShoppingPage() {
 
    const hasItemsInCart = cartItems.length > 0;
    const hasItemsInWishlist = wishlistItems.length > 0;
-
+   const isInCart = (productId) => cartItems.some(item => item.id === productId);
+   const isInWishlist = (productId) => wishlistItems.some(item => item.id === productId);
+   
   return (
     <>
       <Header />
@@ -105,6 +107,8 @@ export default function ShoppingPage() {
                 quantity={0}
                 hasItemsInCart={hasItemsInCart}
                 hasItemsInWishlist={hasItemsInWishlist}
+                isInCart={isInCart(item.id)}
+                isInWishlist={isInWishlist(item.id)}
               />
             ))}
           </div>

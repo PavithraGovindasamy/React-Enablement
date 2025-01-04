@@ -28,4 +28,13 @@ button{
   border-bottom: 4px solid black;
 }
 
+.button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:hover:not(.disabled) {
+  background-color: #0056b3;
+}
 

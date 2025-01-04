@@ -1,17 +1,29 @@
-import './Button.css'
-import PropTypes from "prop-types";
+import React from 'react';
+import './Button.css';
+import PropTypes from 'prop-types';
 
+export default function Button({ id, label, clicked, onSelected, disabled }) {
+  return (
+    <button
+      id={id}
+      onClick={clicked}
+      className={`button ${onSelected ? 'active' : ''} ${disabled ? 'disabled' : ''}`}
+      disabled={disabled}
+    >
+      {label}
+    </button>
+  );
+}
 
-export default function Button({id,label,clicked,onSelected}) {
-    return (
+Button.propTypes = {
+  id: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  clicked: PropTypes.func.isRequired,
+  onSelected: PropTypes.bool,
+  disabled: PropTypes.bool, 
+};
 
-        <button id={id} onClick={clicked} className={onSelected ? "active" : undefined} >
-          {label}
-        </button>
-    );
-  }
-  
-  Button.propTypes = {
-    label: PropTypes.string.isRequired,
-  };
-  
+Button.defaultProps = {
+  onSelected: false,
+  disabled: false,
+};

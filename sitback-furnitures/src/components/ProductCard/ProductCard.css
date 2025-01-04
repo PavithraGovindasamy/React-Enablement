@@ -86,14 +86,4 @@ hr{
   box-shadow: 0 0 10px rgba(0, 128, 0, 0.5); 
 }
 
-#cart-button:hover{
-  border: 2px solid pink;
-  background-color: #f0fff0;
-  box-shadow: 2px 0 10px rgba(0, 128, 0, 0.5); 
-}
 
-#wishlist-button:hover{
-  border: 2px solid violet;
-  background-color: #f0fff0;
-  box-shadow: 0 0px 10px rgba(0, 128, 0, 0.5); 
-}
