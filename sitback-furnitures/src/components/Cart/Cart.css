@@ -27,7 +27,7 @@
       flex-direction: column;
       row-gap: 25px;
       margin-left: 29px;
-      height: 550px;
+      height: 650px;
       overflow-y: auto;
       overflow-x: hidden;
 }
